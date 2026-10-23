@@ -1,0 +1,619 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #e8f8fc;
+    color: #24353b;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+    width: 100%;
+    padding: 22px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(232, 248, 252, 0.95);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.logo-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #77b8c5;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.nav-links a {
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #559daa;
+}
+
+.nav-login {
+    padding: 10px 18px;
+}
+
+.nav-signup {
+    padding: 11px 22px;
+    border-radius: 25px;
+    background: #70b2c0;
+    color: white;
+}
+
+
+/* ================= HERO ================= */
+
+.hero {
+    min-height: 720px;
+    padding: 90px 7%;
+    display: grid;
+    grid-template-columns: 1fr 0.9fr;
+    align-items: center;
+    gap: 70px;
+
+    position: relative;
+    overflow: hidden;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    transition: background-image 0.6s ease-in-out;
+}
+/* ==========================================
+   HERO IMAGE SLIDER ARROWS
+   ========================================== */
+
+.hero-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 48px;
+    height: 48px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.88);
+    color: #4f8f9b;
+
+    font-size: 24px;
+    font-weight: bold;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    z-index: 5;
+
+    box-shadow: 0 8px 25px rgba(60, 120, 135, 0.18);
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.hero-arrow:hover {
+    background: #70b2c0;
+    color: white;
+
+    transform: translateY(-50%) scale(1.08);
+
+    box-shadow: 0 10px 30px rgba(60, 120, 135, 0.25);
+}
+
+.hero-arrow-left {
+    left: 25px;
+}
+
+.hero-arrow-right {
+    right: 25px;
+}
+
+/* Dark/light overlay so the existing text remains readable */
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(232, 248, 252, 0.55);
+    z-index: 0;
+}
+
+/* Keep hero content above the background */
+.hero-content,
+.hero-visual {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-small-title {
+    font-size: 12px;
+    letter-spacing: 3px;
+    font-weight: bold;
+    color: #5799a7;
+    margin-bottom: 18px;
+}
+
+.hero h1 {
+    font-size: clamp(45px, 5vw, 72px);
+    line-height: 1.05;
+    margin-bottom: 25px;
+}
+
+.hero h1 span {
+    color: #5da5b4;
+}
+
+.hero-description {
+    max-width: 580px;
+    font-size: 17px;
+    color: #222c2e;
+    margin-bottom: 35px;
+}
+
+.hero-buttons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.primary-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    background: #66aebb;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.primary-button:hover {
+    transform: translateY(-3px);
+}
+
+.secondary-button {
+    padding: 14px 23px;
+    border: 1px solid #1c788b;
+    border-radius: 30px;
+    color: #4f747c;
+}
+
+
+/* ================= HEALTH CARD ================= */
+
+.hero-visual {
+    display: flex;
+    justify-content: center;
+}
+
+.health-card {
+    width: 100%;
+    max-width: 450px;
+    background: white;
+    padding: 30px;
+    border-radius: 28px;
+    box-shadow: 0 20px 60px rgba(79, 135, 148, 0.15);
+    animation: floating 4s ease-in-out infinite;
+}
+
+@keyframes floating {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.health-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.card-label {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #88a3a9;
+    margin-bottom: 5px;
+}
+
+.health-card h3 {
+    font-size: 25px;
+}
+
+.heart-circle {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: #e5f6fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #5da5b4;
+    font-size: 20px;
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 9px;
+    font-size: 14px;
+}
+
+.progress-info strong {
+    color: #5da5b4;
+}
+
+.progress-track {
+    height: 10px;
+    background: #e6f0f2;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: #70b2c0;
+    border-radius: 20px;
+}
+
+.health-items {
+    margin-top: 25px;
+}
+
+.health-item {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 14px 0;
+    border-bottom: 1px solid #edf3f4;
+}
+
+.health-item:last-child {
+    border-bottom: none;
+}
+
+.item-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: #edf9fb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 19px;
+}
+
+.health-item div:nth-child(2) {
+    flex: 1;
+}
+
+.health-item strong,
+.health-item span {
+    display: block;
+}
+
+.health-item strong {
+    font-size: 14px;
+}
+
+.health-item span {
+    font-size: 12px;
+    color: #8a9b9f;
+}
+
+.health-item .check {
+    color: #64aebc;
+    font-size: 17px;
+}
+
+
+/* ================= FEATURES ================= */
+
+.features-section {
+    padding: 100px 7%;
+    background: white;
+}
+
+.section-heading {
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto 55px;
+}
+
+.section-heading p,
+.section-label {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #5da5b4;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.section-heading h2 {
+    font-size: 42px;
+    margin-bottom: 12px;
+}
+
+.section-heading span {
+    color: #77898e;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.feature-card {
+    padding: 30px;
+    border: 1px solid #e5eff1;
+    border-radius: 22px;
+    transition: 0.3s;
+    background: #fbfeff;
+}
+
+.feature-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 15px 35px rgba(80, 140, 150, 0.12);
+}
+
+.feature-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 15px;
+    background: #e9f8fb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 23px;
+    margin-bottom: 20px;
+}
+
+.feature-card h3 {
+    margin-bottom: 10px;
+}
+
+.feature-card p {
+    color: #718388;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.feature-card a {
+    color: #579eac;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+
+/* ================= ABOUT ================= */
+
+.about-section {
+    padding: 110px 7%;
+}
+
+.about-content {
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+}
+
+.about-content h2 {
+    font-size: 44px;
+    line-height: 1.2;
+    margin-bottom: 25px;
+}
+
+.about-content h2 span {
+    color: #5da5b4;
+}
+
+.about-content p:not(.section-label) {
+    color: #718388;
+    margin-bottom: 15px;
+}
+
+
+/* ================= CTA ================= */
+
+.cta-section {
+    margin: 0 7% 80px;
+    padding: 70px 30px;
+    background: #d4f0f5;
+    border-radius: 30px;
+    text-align: center;
+}
+
+.cta-section p {
+    color: #5b9ca9;
+    letter-spacing: 3px;
+    font-size: 11px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.cta-section h2 {
+    font-size: 40px;
+    margin-bottom: 25px;
+}
+
+
+/* ================= FOOTER ================= */
+
+footer {
+    background: #294b52;
+    color: white;
+    padding: 40px 7%;
+    text-align: center;
+}
+
+.footer-logo {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+footer p {
+    font-size: 10px;
+    letter-spacing: 2px;
+    opacity: 0.7;
+}
+
+footer span {
+    display: block;
+    margin-top: 20px;
+    font-size: 12px;
+    opacity: 0.6;
+}
+
+/* =========================================
+   Admin Login Footer Link
+   ========================================= */
+
+.admin-login-link {
+    display: inline-block;
+    margin: 12px 0 15px;
+
+    color: rgba(255, 255, 255, 0.75);
+
+    font-size: 13px;
+    font-weight: 500;
+
+    text-decoration: none;
+
+    transition:
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.admin-login-link:hover {
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero-arrow {
+       width: 40px;
+       height: 40px;
+       font-size: 19px;
+    }
+
+    .hero-arrow-left {
+        left: 10px;
+    }
+
+    .hero-arrow-right {
+        right: 10px;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .navbar {
+        padding: 18px 5%;
+    }
+
+    .nav-links a:not(.nav-login):not(.nav-signup) {
+        display: none;
+    }
+
+    .hero {
+        padding: 60px 5%;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 45px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .section-heading h2,
+    .about-content h2,
+    .cta-section h2 {
+        font-size: 32px;
+    }
+}

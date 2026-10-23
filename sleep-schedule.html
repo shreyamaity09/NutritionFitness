@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sleep Schedule | NutriTrack</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/feature.css') }}">
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <nav class="feature-navbar">
+
+        <div class="feature-logo">
+            <span>♥</span> NutriTrack
+        </div>
+
+        <a href="/dashboard" class="back-dashboard">
+            ← Dashboard
+        </a>
+
+    </nav>
+
+
+    <!-- =========================
+         MAIN CONTAINER
+    ========================== -->
+
+    <main class="feature-container">
+
+
+        <!-- PAGE HEADER -->
+
+        <section class="feature-header">
+
+            <div class="feature-icon">
+                😴
+            </div>
+
+            <h1>Sleep Schedule</h1>
+
+            <p>
+                Understand your current sleep routine and get
+                a healthier recommended schedule.
+            </p>
+
+        </section>
+
+
+        <!-- =========================
+             SLEEP INPUT
+        ========================== -->
+
+        <section class="meal-input-card">
+
+            <h2>Tell us about your sleep routine</h2>
+
+            <p class="section-description">
+                Enter your usual sleeping and waking times so
+                we can check your sleep duration.
+            </p>
+
+
+            <div class="input-grid">
+
+                <!-- SLEEP TIME -->
+
+                <div class="input-group">
+
+                    <label for="sleepTime">
+                        Usual Sleep Time
+                    </label>
+
+                    <input
+                        type="time"
+                        id="sleepTime"
+                    >
+
+                </div>
+
+
+                <!-- WAKE TIME -->
+
+                <div class="input-group">
+
+                    <label for="wakeTime">
+                        Usual Wake-up Time
+                    </label>
+
+                    <input
+                        type="time"
+                        id="wakeTime"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- ENTER BUTTON -->
+
+            <button
+                class="primary-feature-btn"
+                id="checkSleepBtn"
+                type="button"
+            >
+
+                Enter
+                <span>→</span>
+
+            </button>
+
+        </section>
+
+
+        <!-- =========================
+             CURRENT SLEEP RESULT
+        ========================== -->
+
+        <section
+            class="estimate-card hidden"
+            id="sleepResultSection"
+        >
+
+            <div class="estimate-icon" id="sleepResultIcon">
+                🌙
+            </div>
+
+
+            <div class="estimate-content">
+
+                <h2 id="sleepResultTitle">
+                    Your Sleep Routine
+                </h2>
+
+                <p id="sleepResultMessage">
+                    Your sleep information will appear here.
+                </p>
+
+
+                <div class="days-display">
+
+                    <strong id="sleepDuration">
+                        0
+                    </strong>
+
+                    <span>hours of sleep</span>
+
+                </div>
+
+            </div>
+
+
+            <!-- RECOMMEND ARROW -->
+
+            <button
+                class="recommend-arrow"
+                id="sleepRecommendBtn"
+                type="button"
+                aria-label="Get correct sleeping schedule"
+            >
+                →
+            </button>
+
+        </section>
+
+
+        <!-- =========================
+             RECOMMENDATION MESSAGE
+        ========================== -->
+
+        <section
+            class="recommend-message hidden"
+            id="sleepRecommendMessage"
+        >
+
+            <div class="message-icon">
+                ✨
+            </div>
+
+            <div>
+
+                <h3>
+                    Get your correct sleeping schedule
+                </h3>
+
+                <p>
+                    Click the arrow to get a recommended
+                    sleeping and waking schedule.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             RECOMMENDED SCHEDULE
+        ========================== -->
+
+        <section
+            class="meal-plan-section hidden"
+            id="recommendedSleepSection"
+        >
+
+            <div class="meal-plan-heading">
+
+                <div>
+
+                    <span class="small-title">
+                        YOUR RECOMMENDATION
+                    </span>
+
+                    <h2>Recommended Sleep Schedule</h2>
+
+                </div>
+
+                <div class="plan-badge">
+                    🌙 Healthy Routine
+                </div>
+
+            </div>
+
+
+            <!-- SCHEDULE CARDS -->
+
+            <div class="meal-grid">
+
+
+                <!-- SLEEP TIME -->
+
+                <article class="meal-card sleep-card">
+
+                    <div class="meal-card-top">
+
+                        <div class="meal-emoji">
+                            🌙
+                        </div>
+
+                        <div>
+
+                            <span class="meal-time">
+                                BEDTIME
+                            </span>
+
+                            <h3 id="recommendedSleepTime">
+                                10:30 PM
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+                    <p>
+                        Try to go to bed around this time every
+                        night to maintain a consistent sleep routine.
+                    </p>
+
+                    <div class="meal-info">
+
+                        <span>
+                            🛏️ Recommended bedtime
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+                <!-- WAKE TIME -->
+
+                <article class="meal-card sleep-card">
+
+                    <div class="meal-card-top">
+
+                        <div class="meal-emoji">
+                            ☀️
+                        </div>
+
+                        <div>
+
+                            <span class="meal-time">
+                                WAKE-UP TIME
+                            </span>
+
+                            <h3 id="recommendedWakeTime">
+                                6:30 AM
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+                    <p>
+                        Wake up around this time to maintain a
+                        regular daily routine.
+                    </p>
+
+                    <div class="meal-info">
+
+                        <span>
+                            ☀️ Recommended wake-up time
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+                <!-- DURATION -->
+
+                <article class="meal-card sleep-card">
+
+                    <div class="meal-card-top">
+
+                        <div class="meal-emoji">
+                            💤
+                        </div>
+
+                        <div>
+
+                            <span class="meal-time">
+                                SLEEP DURATION
+                            </span>
+
+                            <h3 id="recommendedSleepDuration">
+                                8 hours
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+                    <p>
+                        Aim for enough quality sleep to support
+                        your health, energy and daily activities.
+                    </p>
+
+                    <div class="meal-info">
+
+                        <span>
+                            💤 Recommended duration
+                        </span>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+
+            <!-- HEALTH MESSAGE -->
+
+            <div class="again-message">
+
+                <div class="again-icon">
+                    💙
+                </div>
+
+                <div>
+
+                    <h3>
+                        Make sleep a daily priority
+                    </h3>
+
+                    <p>
+                        Following a consistent sleep schedule can
+                        support your health, energy and other
+                        daily activities.
+                    </p>
+
+                </div>
+
+            </div>
+            <!-- =========================
+            COMPLETE SLEEP BUTTON
+            ========================== -->
+
+            <div class="completion-container">
+
+                <button
+                    id="completeSleepButton"
+                    class="complete-task-button"
+                    type="button"
+                >
+                    ✓ Complete Today's Sleep Schedule
+                </button>
+
+                <p
+                    id="sleepCompletionMessage"
+                    class="completion-message"
+                ></p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script src="{{ url_for('static', filename='js/sleep.js') }}"></script>
+
+</body>
+</html>

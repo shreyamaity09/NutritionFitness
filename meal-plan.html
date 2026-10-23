@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Meal Plan | NutriTrack</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/feature.css') }}">
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <nav class="feature-navbar">
+
+        <div class="feature-logo">
+            <span>♥</span> NutriTrack
+        </div>
+
+        <a href="/dashboard" class="back-dashboard">
+            ← Dashboard
+        </a>
+
+    </nav>
+
+
+    <!-- =========================
+         MAIN CONTAINER
+    ========================== -->
+
+    <main class="feature-container">
+
+        <!-- PAGE HEADER -->
+
+        <section class="feature-header">
+
+            <div class="feature-icon">🍽️</div>
+
+            <h1>Personalized Meal Plan</h1>
+
+            <p>
+                Create a meal plan based on your weight goals
+                and dietary needs.
+            </p>
+
+        </section>
+
+
+        <!-- =========================
+             STEP 1 - USER DETAILS
+        ========================== -->
+
+        <section class="meal-input-card" id="mealInputSection">
+
+            <h2>Tell us about your goal</h2>
+
+            <p class="section-description">
+                Enter your details to help us create a suitable
+                meal plan for you.
+            </p>
+
+
+            <div class="input-grid">
+
+                <!-- ORIGINAL WEIGHT -->
+
+                <div class="input-group">
+
+                    <label for="originalWeight">
+                        Original Weight
+                    </label>
+
+                    <div class="input-with-unit">
+
+                        <input
+                            type="number"
+                            id="originalWeight"
+                            placeholder="Enter your weight"
+                            min="1"
+                            step="0.1"
+                        >
+
+                        <span>kg</span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TARGET WEIGHT -->
+
+                <div class="input-group">
+
+                    <label for="targetWeight">
+                        Target Weight
+                    </label>
+
+                    <div class="input-with-unit">
+
+                        <input
+                            type="number"
+                            id="targetWeight"
+                            placeholder="Enter target weight"
+                            min="1"
+                            step="0.1"
+                        >
+
+                        <span>kg</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ALLERGIES -->
+
+            <div class="input-group full-width">
+
+                <label for="allergies">
+                    Allergies
+                </label>
+
+                <input
+                    type="text"
+                    id="allergies"
+                    placeholder="Example: peanuts, milk, eggs (or type None)"
+                >
+
+                <small>
+                    Mention any food allergies or intolerances.
+                </small>
+
+            </div>
+
+
+            <!-- ENTER BUTTON -->
+
+            <button
+                class="primary-feature-btn"
+                id="calculateWeeksBtn"
+                type="button"
+            >
+                Enter
+                <span>→</span>
+            </button>
+
+        </section>
+
+
+        <!-- =========================
+             STEP 2 - ESTIMATED DAYS
+        ========================== -->
+
+        <section
+            class="estimate-card hidden"
+            id="estimateSection"
+        >
+
+            <div class="estimate-icon">
+                📅
+            </div>
+
+            <div class="estimate-content">
+
+                <h2>Your Estimated Journey</h2>
+
+                <p id="estimateMessage">
+                    Based on your weight goal, your estimated
+                    journey will be displayed here.
+                </p>
+
+                <div class="days-display">
+
+                    <strong id="estimatedWeeks">
+                        0
+                    </strong>
+
+                    <span>weeks approximately</span>
+
+                </div>
+
+            </div>
+
+
+            <!-- RECOMMEND ARROW -->
+
+            <button
+                class="recommend-arrow"
+                id="recommendBtn"
+                type="button"
+                aria-label="Recommend meal plan"
+            >
+                →
+            </button>
+
+        </section>
+
+
+        <!-- =========================
+             RECOMMENDATION MESSAGE
+        ========================== -->
+
+        <section
+            class="recommend-message hidden"
+            id="recommendMessage"
+        >
+
+            <div class="message-icon">
+                ✨
+            </div>
+
+            <div>
+
+                <h3>Ready for your meal plan?</h3>
+
+                <p>
+                    Click the recommendation button to get
+                    your personalized meal plan.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             MEAL PLAN
+        ========================== -->
+
+        <section
+            class="meal-plan-section hidden"
+            id="mealPlanSection"
+        >
+
+            <div class="meal-plan-heading">
+
+                <div>
+
+                    <span class="small-title">
+                        YOUR RECOMMENDATION
+                    </span>
+
+                    <h2>Your Daily Meal Plan</h2>
+
+                </div>
+
+                <div class="plan-badge">
+                    🥗 Balanced Plan
+                </div>
+
+            </div>
+
+
+            <!-- MEALS -->
+
+            <div class="meal-grid" id="mealGrid">
+
+                <!-- Breakfast -->
+
+                <article class="meal-card" id="breakfastCard">
+
+                    <div class="meal-card-top">
+
+                        <div class="meal-emoji">
+                            🌅
+                        </div>
+
+                        <div>
+
+                            <span class="meal-time">
+                                BREAKFAST
+                            </span>
+
+                            <h3 id="breakfastName">
+                                Healthy Breakfast
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+                    <p id="breakfastDescription">
+                        Your recommended breakfast will appear here.
+                    </p>
+                    <p class="video-hint">▶ Click the card to watch the recipe video</p>
+
+                    <div class="meal-info">
+
+                        <span id="breakfastCalories">
+                            🔥 400 kcal
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Lunch -->
+
+                <article class="meal-card" id="lunchCard">
+
+                    <div class="meal-card-top">
+
+                        <div class="meal-emoji">
+                            ☀️
+                        </div>
+
+                        <div>
+
+                            <span class="meal-time">
+                                LUNCH
+                            </span>
+
+                            <h3 id="lunchName">
+                                Healthy Lunch
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+                    <p id="lunchDescription">
+                        Your recommended lunch will appear here.
+                    </p>
+                    <p class="video-hint">▶ Click the card to watch the recipe video</p>
+
+                    <div class="meal-info">
+
+                        <span id="lunchCalories">
+                            🔥 550 kcal
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Dinner -->
+
+                <article class="meal-card" id="dinnerCard">
+
+                    <div class="meal-card-top">
+
+                        <div class="meal-emoji">
+                            🌙
+                        </div>
+
+                        <div>
+
+                            <span class="meal-time">
+                                DINNER
+                            </span>
+
+                            <h3 id="dinnerName">
+                                Healthy Dinner
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+                    <p id="dinnerDescription">
+                        Your recommended dinner will appear here.
+                    </p>
+                    <p class="video-hint">▶ Click the card to watch the recipe video</p>
+
+                    <div class="meal-info">
+
+                        <span id="dinnerCalories">
+                            🔥 500 kcal
+                        </span>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+
+            <!-- AGAIN MESSAGE -->
+
+            <div class="again-message">
+
+                <div class="again-icon">
+                    🔄
+                </div>
+
+                <div>
+
+                    <h3>Want a different meal plan?</h3>
+
+                    <p>
+                        Click "Recommend Again" to get a new
+                        meal plan.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- RECOMMEND AGAIN -->
+
+            <button
+                class="again-btn"
+                id="recommendAgainBtn"
+                type="button"
+            >
+
+                <span>↻</span>
+                Recommend Again
+
+            </button>
+            <button
+               id="completeMealButton"
+               class="complete-task-button"
+               type="button"
+            >
+               ✓ Complete Today's Meal Plan
+            </button>
+
+            <p
+                id="mealCompletionMessage"
+                class="completion-message">
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script src="{{ url_for('static', filename='js/meal-plan.js') }}"></script>
+
+</body>
+</html>

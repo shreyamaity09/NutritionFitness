@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NutriTrack - Healthier You, Everyday</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            <span class="logo-icon">♥</span>
+            <span>NutriTrack</span>
+        </div>
+
+        <nav class="nav-links">
+
+            <a href="#home">Home</a>
+            <a href="#features">Features</a>
+            <a href="#about">About</a>
+
+            <a href="/login" class="nav-login">
+                Login
+            </a>
+
+            <a href="/register" class="nav-signup">
+                Sign Up
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+
+    <main id="home">
+
+        <section class="hero">
+            <button class="hero-arrow hero-arrow-left" id="heroPrev" aria-label="Previous image">
+                &#8592;
+            </button>
+
+            <button class="hero-arrow hero-arrow-right" id="heroNext" aria-label="Next image">
+                &#8594;
+            </button>
+
+            <div class="hero-content">
+
+                <p class="hero-small-title">
+                    YOUR PERSONAL HEALTH COMPANION
+                </p>
+
+                <h1>
+                    A Healthier You,<br>
+                    <span>Every Single Day.</span>
+                </h1>
+
+                <p class="hero-description">
+                    NutriTrack helps you build healthier habits with
+                    personalized meal plans, structured workouts,
+                    sleep schedules, hydration tracking and progress
+                    monitoring — all in one place.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="/register" class="primary-button">
+                        Start Your Journey
+                        <span>→</span>
+                    </a>
+
+                    <a href="#features" class="secondary-button">
+                        Explore Features
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- HEALTH CARD -->
+
+            <div class="hero-visual">
+
+                <div class="health-card">
+
+                    <div class="health-card-header">
+
+                        <div>
+                            <span class="card-label">
+                                TODAY'S OVERVIEW
+                            </span>
+
+                            <h3>
+                                Your Health
+                            </h3>
+                        </div>
+
+                        <span class="heart-circle">
+                            ♥
+                        </span>
+
+                    </div>
+
+
+                    <div class="health-progress">
+
+                        <div class="progress-info">
+
+                            <span>
+                                Daily Progress
+                            </span>
+
+                            <strong>
+                                78%
+                            </strong>
+
+                        </div>
+
+                        <div class="progress-track">
+
+                            <div class="progress-fill"
+                                 style="width: 78%;">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="health-items">
+
+                        <div class="health-item">
+
+                            <div class="item-icon">
+                                🍎
+                            </div>
+
+                            <div>
+                                <strong>
+                                    Meal Plan
+                                </strong>
+
+                                <span>
+                                    3 meals planned
+                                </span>
+                            </div>
+
+                            <span class="check">
+                                ✓
+                            </span>
+
+                        </div>
+
+
+                        <div class="health-item">
+
+                            <div class="item-icon">
+                                🏃
+                            </div>
+
+                            <div>
+                                <strong>
+                                    Exercise
+                                </strong>
+
+                                <span>
+                                    30 min workout
+                                </span>
+                            </div>
+
+                            <span class="check">
+                                ✓
+                            </span>
+
+                        </div>
+
+
+                        <div class="health-item">
+
+                            <div class="item-icon">
+                                💧
+                            </div>
+
+                            <div>
+                                <strong>
+                                    Water
+                                </strong>
+
+                                <span>
+                                    1.8L / 2.5L
+                                </span>
+                            </div>
+
+                            <span class="check">
+                                ✓
+                            </span>
+
+                        </div>
+
+
+                        <div class="health-item">
+
+                            <div class="item-icon">
+                                😴
+                            </div>
+
+                            <div>
+                                <strong>
+                                    Sleep
+                                </strong>
+
+                                <span>
+                                    7.5 hours
+                                </span>
+                            </div>
+
+                            <span class="check">
+                                ✓
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= FEATURES ================= -->
+
+        <section class="features-section"
+                 id="features">
+
+            <div class="section-heading">
+
+                <p>
+                    EVERYTHING YOU NEED
+                </p>
+
+                <h2>
+                    Your Health, Your Way
+                </h2>
+
+                <span>
+                    Personalized tools designed to help you
+                    understand and improve your daily habits.
+                </span>
+
+            </div>
+
+
+            <div class="feature-grid">
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        🍎
+                    </div>
+
+                    <h3>
+                        Custom Meal Plans
+                    </h3>
+
+                    <p>
+                        Get personalized daily meals based on
+                        your fitness goals, allergies and
+                        caloric requirements.
+                    </p>
+
+                    <a href="/meal-plan">
+                        Explore →
+                    </a>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        🏋
+                    </div>
+
+                    <h3>
+                        Structured Workouts
+                    </h3>
+
+                    <p>
+                        Follow daily workout schedules designed
+                        around your fitness goals and body targets.
+                    </p>
+
+                    <a href="/exercise-plan">
+                        Explore →
+                    </a>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        💧
+                    </div>
+
+                    <h3>
+                        Water Intake
+                    </h3>
+
+                    <p>
+                        Monitor your daily hydration and discover
+                        a recommended water intake for your needs.
+                    </p>
+
+                    <a href="/water-intake">
+                        Explore →
+                    </a>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        😴
+                    </div>
+
+                    <h3>
+                        Sleep Schedule
+                    </h3>
+
+                    <p>
+                        Understand your current sleep habits and
+                        receive a healthier recommended schedule.
+                    </p>
+
+                    <a href="/sleep-schedule">
+                        Explore →
+                    </a>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        📊
+                    </div>
+
+                    <h3>
+                        Progress Analytics
+                    </h3>
+
+                    <p>
+                        Track your meals, workouts, hydration and
+                        sleep with simple visual progress tracking.
+                    </p>
+
+                    <a href="/progress">
+                        Explore →
+                    </a>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        👤
+                    </div>
+
+                    <h3>
+                        Personal Profile
+                    </h3>
+
+                    <p>
+                        Manage your personal information, fitness
+                        goals and preferences from one place.
+                    </p>
+
+                    <a href="/profile">
+                        View Profile →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= ABOUT ================= -->
+
+        <section class="about-section"
+                 id="about">
+
+            <div class="about-content">
+
+                <p class="section-label">
+                    ABOUT NUTRITRACK
+                </p>
+
+                <h2>
+                    Small habits create
+                    <span>big changes.</span>
+                </h2>
+
+                <p>
+                    NutriTrack is designed to make nutrition and
+                    fitness easier to understand and manage.
+                    Instead of keeping track of meals, workouts,
+                    water and sleep separately, everything is
+                    brought together into one simple platform.
+                </p>
+
+                <p>
+                    Your recommendations are based on the
+                    information you provide, helping you create
+                    healthier daily routines.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CTA ================= -->
+
+        <section class="cta-section">
+
+            <div>
+
+                <p>
+                    READY TO START?
+                </p>
+
+                <h2>
+                    Your healthier journey
+                    starts today.
+                </h2>
+
+                <a href="/register"
+                   class="primary-button">
+
+                    Create Your Account
+                    <span>→</span>
+
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-logo">
+            ♥ NutriTrack
+        </div>
+
+        <p>
+            HEALTHIER YOU, EVERYDAY
+        </p>
+
+        <a href="/admin/login" class="admin-login-link">
+            Admin Login
+        </a>
+
+        <span>
+            © 2026 NutriTrack. College Project.
+        </span>
+
+    </footer>
+
+
+    <script src="{{ url_for('static', filename='js/main.js') }}">
+    </script>
+
+</body>
+
+</html>

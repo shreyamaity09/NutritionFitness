@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Personalize Your Plan | NutriTrack</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/questionnaire.css') }}">
+</head>
+
+<body>
+
+<div class="questionnaire-page">
+
+    <!-- TOP BAR -->
+    <header class="questionnaire-header">
+
+        <a href="/" class="questionnaire-logo">
+            ♥ <span>NutriTrack</span>
+        </a>
+
+        <div class="step-counter">
+            <span id="currentStep">1</span>
+            /
+            <span id="totalSteps">11</span>
+        </div>
+
+    </header>
+
+
+    <!-- PROGRESS BAR -->
+
+    <div class="progress-container">
+
+        <div class="progress-bar">
+
+            <div
+                class="progress-fill"
+                id="progressFill">
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="questionnaire-main">
+
+        <div class="questionnaire-card">
+
+            <!-- INTRO -->
+
+            <div class="question-intro">
+
+                <div class="question-icon">
+                    ✦
+                </div>
+
+                <p class="question-label">
+                    LET'S PERSONALIZE YOUR PLAN
+                </p>
+
+                <h1>
+                    Tell us a little
+                    <span>about yourself.</span>
+                </h1>
+
+                <p class="question-description">
+                    Your answers will help NutriTrack create
+                    nutrition, workout, sleep and hydration
+                    recommendations for you.
+                </p>
+
+            </div>
+
+
+            <!-- QUESTIONS -->
+
+            <form id="questionnaireForm">
+
+
+                <!-- QUESTION 1 -->
+
+                <div class="question-step active">
+
+                    <div class="question-number">
+                        01
+                    </div>
+
+                    <h2>
+                        How old are you?
+                    </h2>
+
+                    <p class="question-help">
+                        Enter your current age.
+                    </p>
+
+                    <div class="input-with-unit">
+
+                        <input
+                            type="number"
+                            id="age"
+                            placeholder="Enter your age"
+                            min="13"
+                            max="100"
+                        >
+
+                        <span>years</span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- QUESTION 2 -->
+
+                <div class="question-step">
+
+                    <div class="question-number">
+                        02
+                    </div>
+
+                    <h2>
+                        What is your height?
+                    </h2>
+
+                    <p class="question-help">
+                        Enter your height in centimeters.
+                    </p>
+
+                    <div class="input-with-unit">
+
+                        <input
+                            type="number"
+                            id="height"
+                            placeholder="Enter your height"
+                            min="100"
+                            max="250"
+                        >
+
+                        <span>cm</span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- QUESTION 3 -->
+
+                <div class="question-step">
+
+                    <div class="question-number">
+                        03
+                    </div>
+
+                    <h2>
+                        What is your current weight?
+                    </h2>
+
+                    <p class="question-help">
+                        Enter your current body weight.
+                    </p>
+
+                    <div class="input-with-unit">
+
+                        <input
+                            type="number"
+                            id="weight"
+                            placeholder="Enter your weight"
+                            min="25"
+                            max="300"
+                            step="0.1"
+                        >
+
+                        <span>kg</span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- QUESTION 4 -->
+
+                <div class="question-step">
+
+                    <div class="question-number">
+                        04
+                    </div>
+
+                    <h2>
+                        What is your date of birth?
+                    </h2>
+
+                    <p class="question-help">
+                        This helps us keep your profile information complete.
+                    </p>
+
+                    <input
+                        type="date"
+                        id="dateOfBirth"
+                        class="normal-input"
+                    >
+
+                </div>
+
+
+                <!-- QUESTION 5 -->
+
+                <div class="question-step">
+
+                    <div class="question-number">
+                        05
+                    </div>
+
+                    <h2>
+                        Do you have any food allergies?
+                    </h2>
+
+                    <p class="question-help">
+                        Select all that apply, or choose none.
+                    </p>
+
+                    <div class="option-grid allergy-options">
+
+                        <label class="option-card">
+                            <input
+                                type="checkbox"
+                                name="allergy"
+                                value="None"
+                            >
+                            <span>None</span>
+                        </label>
+
+                        <label class="option-card">
+                            <input
+                                type="checkbox"
+                                name="allergy"
+                                value="Dairy"
+                            >
+                            <span>Dairy</span>
+                        </label>
+
+                        <label class="option-card">
+                            <input
+                                type="checkbox"
+                                name="allergy"
+                                value="Nuts"
+                            >
+                            <span>Nuts</span>
+                        </label>
+
+                        <label class="option-card">
+                            <input
+                                type="checkbox"
+                                name="allergy"
+                                value="Eggs"
+                            >
+                            <span>Eggs</span>
+                        </label>
+
+                        <label class="option-card">
+                            <input
+                                type="checkbox"
+                                name="allergy"
+                                value="Gluten"
+                            >
+                            <span>Gluten</span>
+                        </label>
+
+                        <label class="option-card">
+                            <input
+                                type="checkbox"
+                                name="allergy"
+                                value="Seafood"
+                            >
+                            <span>Seafood</span>
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <!-- QUESTION 6 -->
+
+                <div class="question-step">
+
+                    <div class="question-number">
+                        06
+                    </div>
+
+                    <h2>
+                        What does fitness mean to you?
+                    </h2>
+
+                    <p class="question-help">
+                        Choose the option that best describes you.
+                    </p>
+
+                    <div class="option-list">
+
+                        <label class="radio-card">
+
+                            <input
+                                type="radio"
+                                name="fitnessMeaning"
+                                value="Being healthy"
+                            >
+
+                            <span>
+                                Being healthy
+                            </span>
+
+                        </label>
+
+
+                        <label class="radio-card">
+
+                            <input
+                                type="radio"
+                                name="fitnessMeaning"
+                                value="Looking fit"
+                            >
+
+                            <span>
+                                Looking fit
+                            </span>
+
+                        </label>
+
+
+                        <label class="radio-card">
+
+                            <input
+                                type="radio"
+                                name="fitnessMeaning"
+                                value="Building strength"
+                            >
+
+                            <span>
+                                Building strength
+                            </span>
+
+                        </label>
+
+
+                        <label class="radio-card">
+
+                            <input
+                                type="radio"
+                                name="fitnessMeaning"
+                                value="Improving lifestyle"
+                            >
+
+                            <span>
+                                Improving my overall lifestyle
+                            </span>
+
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <!-- QUESTION 7 -->
+
+                <div class="question-step">
+
+                    <div class="question-number">
+                        07
+                    </div>
+
+                    <h2>
+                        How important is exercise to you?
+                    </h2>
+
+                    <p class="question-help">
+                        Choose the answer that feels closest to you.
+                    </p>
+
+                    <div class="option-list">
+
+                        <label class="radio-card">
+                            <input
+                                type="radio"
+                                name="exerciseImportance"
+                                value="Very important"
+                            >
+                            <span>Very important</span>
+                        </label>
+
+                        <label class="radio-card">
+                            <input
+                                type="radio"
+                                name="exerciseImportance"
+                                value="Important"
+                            >
+                            <span>Important</span>
+                        </label>
+
+                        <label class="radio-card">
+                            <input
+                                type="radio"
+                                name="exerciseImportance"
+                                value="Somewhat important"
+                            >
+                            <span>Somewhat important</span>
+                        </label>
+
+                        <label class="radio-card">
+                            <input
+                                type="radio"
+                                name="exerciseImportance"
+                                value="Not important"
+                            >
+                            <span>Not important</span>
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <!-- QUESTION 8 -->
+
+                <div class="question-step">
+
+                    <div class="question-number">
+                        08
+                    </div>
+
+                    <h2>
+                        How often do you exercise?
+                    </h2>
+
+                    <p class="question-help">
+                        Select your current activity level.
+                    </p>
+
+                    <div class="option-list">
+
+                        <label class="radio-card">
+                            <input
+                                type="radio"
+                                name="exerciseFrequency"
+                                value="Never"
+                            >
+                            <span>Never</span>
+                        </label>
+
+                        <label class="radio-card">
+                            <input
+                                type="radio"
+                                name="exerciseFrequency"
+                                value="1-2 days"
+                            >
+                            <span>1–2 days a week</span>
+                        </label>
+
+                        <label class="radio-card">
+                            <input
+                                type="radio"
+                                name="exerciseFrequency"
+                                value="3-4 days"
+                            >
+                            <span>3–4 days a week</span>
+                        </label>
+
+                        <label class="radio-card">
+                            <input
+                                type="radio"
+                                name="exerciseFrequency"
+                                value="5+ days"
+                            >
+                            <span>5+ days a week</span>
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <!-- QUESTION 9 -->
+
+                <div class="question-step">
+
+                    <div class="question-number">
+                        09
+                    </div>
+
+                    <h2>
+                        What is your main fitness goal?
+                    </h2>
+
+                    <p class="question-help">
+                        You can select more than one.
+                    </p>
+
+                    <div class="option-grid">
+
+                        <label class="option-card">
+                            <input
+                                type="checkbox"
+                                name="fitnessGoal"
+                                value="Weight Loss"
+                            >
+                            <span>Weight Loss</span>
+                        </label>
+
+                        <label class="option-card">
+                            <input
+                                type="checkbox"
+                                name="fitnessGoal"
+                                value="Weight Gain"
+                            >
+                            <span>Weight Gain</span>
+                        </label>
+
+                        <label class="option-card">
+                            <input
+                                type="checkbox"
+                                name="fitnessGoal"
+                                value="Build Muscle"
+                            >
+                            <span>Build Muscle</span>
+                        </label>
+
+                        <label class="option-card">
+                            <input
+                                type="checkbox"
+                                name="fitnessGoal"
+                                value="Stay Healthy"
+                            >
+                            <span>Stay Healthy</span>
+                        </label>
+
+                        <label class="option-card">
+                            <input
+                                type="checkbox"
+                                name="fitnessGoal"
+                                value="Improve Fitness"
+                            >
+                            <span>Improve Fitness</span>
+                        </label>
+
+                        <label class="option-card">
+                            <input
+                                type="checkbox"
+                                name="fitnessGoal"
+                                value="Improve Stamina"
+                            >
+                            <span>Improve Stamina</span>
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <!-- QUESTION 10 -->
+
+                <div class="question-step">
+
+                    <div class="question-number">
+                        10
+                    </div>
+
+                    <h2>
+                        What is your biggest fitness challenge?
+                    </h2>
+
+                    <p class="question-help">
+                        Choose the challenge that affects you most.
+                    </p>
+
+                    <div class="option-list">
+
+                        <label class="radio-card">
+                            <input
+                                type="radio"
+                                name="fitnessChallenge"
+                                value="Lack of time"
+                            >
+                            <span>Lack of time</span>
+                        </label>
+
+                        <label class="radio-card">
+                            <input
+                                type="radio"
+                                name="fitnessChallenge"
+                                value="Motivation"
+                            >
+                            <span>Lack of motivation</span>
+                        </label>
+
+                        <label class="radio-card">
+                            <input
+                                type="radio"
+                                name="fitnessChallenge"
+                                value="Diet"
+                            >
+                            <span>Maintaining a healthy diet</span>
+                        </label>
+
+                        <label class="radio-card">
+                            <input
+                                type="radio"
+                                name="fitnessChallenge"
+                                value="Consistency"
+                            >
+                            <span>Staying consistent</span>
+                        </label>
+
+                        <label class="radio-card">
+                            <input
+                                type="radio"
+                                name="fitnessChallenge"
+                                value="Knowledge"
+                            >
+                            <span>Not knowing where to start</span>
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <!-- QUESTION 11 -->
+
+                <div class="question-step">
+
+                    <div class="question-number">
+                        11
+                    </div>
+
+                    <h2>
+                        How many hours do you usually sleep?
+                    </h2>
+
+                    <p class="question-help">
+                        Select your average sleeping duration.
+                    </p>
+
+                    <div class="option-list">
+
+                        <label class="radio-card">
+                            <input
+                                type="radio"
+                                name="sleepHours"
+                                value="Less than 5"
+                            >
+                            <span>Less than 5 hours</span>
+                        </label>
+
+                        <label class="radio-card">
+                            <input
+                                type="radio"
+                                name="sleepHours"
+                                value="5-6"
+                            >
+                            <span>5–6 hours</span>
+                        </label>
+
+                        <label class="radio-card">
+                            <input
+                                type="radio"
+                                name="sleepHours"
+                                value="7-8"
+                            >
+                            <span>7–8 hours</span>
+                        </label>
+
+                        <label class="radio-card">
+                            <input
+                                type="radio"
+                                name="sleepHours"
+                                value="9+"
+                            >
+                            <span>9+ hours</span>
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ERROR MESSAGE -->
+
+                <div
+                    id="questionError"
+                    class="question-error">
+                </div>
+
+
+                <!-- NAVIGATION -->
+
+                <div class="question-navigation">
+
+                    <button
+                        type="button"
+                        id="backButton"
+                        class="back-button"
+                    >
+                        ← Back
+                    </button>
+
+
+                    <button
+                        type="button"
+                        id="nextButton"
+                        class="next-button"
+                    >
+                        Next →
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<script src="{{ url_for('static', filename='js/questionnaire.js') }}"></script>
+
+</body>
+</html>

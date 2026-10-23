@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Water Intake | NutriTrack</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/feature.css') }}">
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <nav class="feature-navbar">
+
+        <div class="feature-logo">
+            <span>♥</span> NutriTrack
+        </div>
+
+        <a href="/dashboard" class="back-dashboard">
+            ← Dashboard
+        </a>
+
+    </nav>
+
+
+    <!-- =========================
+         MAIN CONTAINER
+    ========================== -->
+
+    <main class="feature-container">
+
+
+        <!-- PAGE HEADER -->
+
+        <section class="feature-header">
+
+            <div class="feature-icon">
+                💧
+            </div>
+
+            <h1>Water Intake</h1>
+
+            <p>
+                Check your daily water intake and find out
+                how much water you should aim for.
+            </p>
+
+        </section>
+
+
+        <!-- =========================
+             WATER INPUT
+        ========================== -->
+
+        <section class="meal-input-card">
+
+            <h2>How much water do you drink in a day?</h2>
+
+            <p class="section-description">
+                Select the approximate amount of water you
+                usually drink every day.
+            </p>
+
+
+            <div class="input-group full-width">
+
+                <label for="waterAmount">
+                    Daily Water Intake
+                </label>
+
+
+                <div class="water-select-wrapper">
+
+                    <select id="waterAmount">
+
+                        <option value="">
+                            Select your daily water intake
+                        </option>
+
+                        <option value="500">
+                            500 ml
+                        </option>
+
+                        <option value="750">
+                            750 ml
+                        </option>
+
+                        <option value="1000">
+                            1,000 ml
+                        </option>
+
+                        <option value="1250">
+                            1,250 ml
+                        </option>
+
+                        <option value="1500">
+                            1,500 ml
+                        </option>
+
+                        <option value="1750">
+                            1,750 ml
+                        </option>
+
+                        <option value="2000">
+                            2,000 ml
+                        </option>
+
+                        <option value="2250">
+                            2,250 ml
+                        </option>
+
+                        <option value="2500">
+                            2,500 ml
+                        </option>
+
+                        <option value="2750">
+                            2,750 ml
+                        </option>
+
+                        <option value="3000">
+                            3,000 ml
+                        </option>
+
+                        <option value="3500">
+                            3,500 ml
+                        </option>
+
+                        <option value="4000">
+                            4,000 ml
+                        </option>
+
+                    </select>
+
+                    <span class="select-arrow">
+                        ▼
+                    </span>
+
+                </div>
+
+
+                <small>
+                    Choose the amount that is closest to
+                    your usual daily intake.
+                </small>
+
+            </div>
+
+
+            <!-- ENTER BUTTON -->
+
+            <button
+                class="primary-feature-btn"
+                id="checkWaterBtn"
+                type="button"
+            >
+
+                Enter
+                <span>→</span>
+
+            </button>
+
+        </section>
+
+
+        <!-- =========================
+             CURRENT WATER RESULT
+        ========================== -->
+
+        <section
+            class="estimate-card hidden"
+            id="waterResultSection"
+        >
+
+            <div
+                class="estimate-icon"
+                id="waterResultIcon"
+            >
+                💧
+            </div>
+
+
+            <div class="estimate-content">
+
+                <h2 id="waterResultTitle">
+                    Your Current Water Intake
+                </h2>
+
+                <p id="waterResultMessage">
+                    Your water intake information will
+                    appear here.
+                </p>
+
+
+                <div class="days-display">
+
+                    <strong id="currentWaterAmount">
+                        0
+                    </strong>
+
+                    <span>ml per day</span>
+
+                </div>
+
+            </div>
+
+
+            <!-- RECOMMEND ARROW -->
+
+            <button
+                class="recommend-arrow"
+                id="waterRecommendBtn"
+                type="button"
+                aria-label="Get correct water intake"
+            >
+                →
+            </button>
+
+        </section>
+
+
+        <!-- =========================
+             RECOMMENDATION MESSAGE
+        ========================== -->
+
+        <section
+            class="recommend-message hidden"
+            id="waterRecommendMessage"
+        >
+
+            <div class="message-icon">
+                ✨
+            </div>
+
+            <div>
+
+                <h3>
+                    Get your recommended water intake
+                </h3>
+
+                <p>
+                    Click the arrow to find the recommended
+                    amount of water to drink each day.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             RECOMMENDED WATER
+        ========================== -->
+
+        <section
+            class="meal-plan-section hidden"
+            id="recommendedWaterSection"
+        >
+
+            <div class="meal-plan-heading">
+
+                <div>
+
+                    <span class="small-title">
+                        YOUR RECOMMENDATION
+                    </span>
+
+                    <h2>Recommended Daily Water Intake</h2>
+
+                </div>
+
+
+                <div class="plan-badge">
+                    💧 Stay Hydrated
+                </div>
+
+            </div>
+
+
+            <!-- WATER CARDS -->
+
+            <div class="meal-grid">
+
+
+                <!-- RECOMMENDED AMOUNT -->
+
+                <article class="meal-card water-card water-amount-card">
+
+                    <div class="meal-card-top">
+
+                        <div class="meal-emoji">
+                            💧
+                        </div>
+
+                        <div>
+
+                            <span class="meal-time">
+                                DAILY TARGET
+                            </span>
+
+                            <h3 id="recommendedWaterAmount">
+                                2,000 ml
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+                    <p>
+                        Aim to drink enough water throughout
+                        the day instead of drinking a large
+                        amount at once.
+                    </p>
+
+                    <div class="meal-info">
+
+                        <span>
+                            💧 Recommended daily amount
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+                <!-- LITRES -->
+
+                <article class="meal-card water-card water-litres-card">
+
+                    <div class="meal-card-top">
+
+                        <div class="meal-emoji">
+                            🥤
+                        </div>
+
+                        <div>
+
+                            <span class="meal-time">
+                                IN LITRES
+                            </span>
+
+                            <h3 id="recommendedWaterLitres">
+                                2.0 L
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+                    <p>
+                        Spread your water intake throughout
+                        your day to make staying hydrated easier.
+                    </p>
+
+                    <div class="meal-info">
+
+                        <span>
+                            🥤 Daily water target
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+                <!-- HYDRATION STATUS -->
+
+                <article class="meal-card water-card hydration-status-card">
+
+                    <div class="meal-card-top">
+
+                        <div class="meal-emoji">
+                            🌊
+                        </div>
+
+                        <div>
+
+                            <span class="meal-time">
+                                HYDRATION
+                            </span>
+
+                            <h3 id="hydrationStatus">
+                                Stay Hydrated
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+                    <p>
+                        Keep a water bottle nearby and remember
+                        to drink regularly during the day.
+                    </p>
+
+                    <div class="meal-info">
+
+                        <span>
+                            🌊 Healthy hydration habit
+                        </span>
+
+                    </div>
+
+                </article>
+
+            </div>
+            <!-- =========================
+             DAILY WATER GLASSES
+            ========================== -->
+
+            <div class="water-glasses-section">
+
+                <div class="water-glasses-heading">
+
+                    <div>
+
+                        <span class="small-title">
+                            DAILY HYDRATION PLAN
+                        </span>
+
+                        <h2>
+                            Your Water Glasses
+                        </h2>
+
+                        <p>
+                            Drink one glass at a time and keep
+                            a 30–40 minute gap before your next glass.
+                        </p>
+
+                    </div>
+
+                    <div class="water-glass-count">
+                        <span id="completedWaterGlasses">
+                            0
+                        </span>
+                        /
+                        <span id="totalWaterGlasses">
+                            8
+                        </span>
+                        glasses
+                    </div>
+
+                </div>
+
+
+                <!-- GLASSES WILL BE CREATED BY JAVASCRIPT -->
+
+                <div
+                    id="waterGlassesContainer"
+                    class="water-glasses-container"
+                ></div>
+
+            </div>
+
+
+            <!-- HEALTH MESSAGE -->
+
+            <div class="again-message">
+
+                <div class="again-icon">
+                    💙
+                </div>
+
+                <div>
+
+                    <h3>
+                        Make hydration a daily habit
+                    </h3>
+
+                    <p>
+                        Following a suitable hydration routine
+                        can support your health, energy and
+                        daily activities.
+                    </p>
+
+                </div>
+
+            </div>
+            <!-- =========================
+            COMPLETE WATER BUTTON
+            ========================== -->
+
+            <div class="completion-container">
+
+                <button
+                    id="completeWaterButton"
+                    class="complete-task-button"
+                    type="button"
+                >
+                    ✓ Complete Today's Water Intake
+                </button>
+
+                <p
+                    id="waterCompletionMessage"
+                    class="completion-message"
+                ></p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script src="{{ url_for('static', filename='js/water-intake.js') }}"></script>
+
+</body>
+</html>

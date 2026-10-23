@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Dashboard | NutriTrack</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/dashboard.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+<div class="dashboard-layout">
+
+
+    <!-- =================================
+         SIDEBAR
+    ================================== -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <!-- LOGO -->
+
+        <div class="sidebar-logo">
+
+            <a href="/">
+                ♥ <span>NutriTrack</span>
+            </a>
+
+        </div>
+
+
+        <!-- USER MINI PROFILE -->
+
+        <div class="sidebar-user">
+
+            <div class="user-avatar" id="sidebarAvatar">
+                S
+            </div>
+
+            <div class="sidebar-user-info">
+
+                <strong id="sidebarUserName">
+                    User
+                </strong>
+
+                <span>
+                    Health Journey
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- NAVIGATION -->
+
+        <nav class="sidebar-navigation">
+
+            <p class="nav-heading">
+                MAIN MENU
+            </p>
+
+
+            <a
+                href="/dashboard"
+                class="nav-item active"
+                data-page="dashboard"
+            >
+                <span class="nav-icon">⌂</span>
+                <span>Dashboard</span>
+            </a>
+
+
+            <a
+                href="/meal-plan"
+                class="nav-item"
+                data-page="meal"
+            >
+                <span class="nav-icon">♨</span>
+                <span>Meal Plan</span>
+            </a>
+
+
+            <a
+                href="/exercise-plan"
+                class="nav-item"
+                data-page="exercise"
+            >
+                <span class="nav-icon">♧</span>
+                <span>Exercise</span>
+            </a>
+
+
+            <a
+                href="/sleep-schedule"
+                class="nav-item"
+                data-page="sleep"
+            >
+                <span class="nav-icon">☾</span>
+                <span>Sleep Schedule</span>
+            </a>
+
+
+            <a
+                href="/water-intake"
+                class="nav-item"
+                data-page="water"
+            >
+                <span class="nav-icon">♒</span>
+                <span>Water Intake</span>
+            </a>
+
+
+            <p class="nav-heading second-heading">
+                TRACKING
+            </p>
+
+
+            <a
+                href="/progress"
+                class="nav-item"
+                data-page="progress"
+            >
+                <span class="nav-icon">↗</span>
+                <span>Progress</span>
+            </a>
+
+
+            <a
+                href="/history"
+                class="nav-item"
+                id="historyLink"
+                data-page="history"
+            >
+                <span class="nav-icon">◷</span>
+                <span>History</span>
+            </a>
+
+
+            <p class="nav-heading second-heading">
+                ACCOUNT
+            </p>
+
+
+            <a
+                href="/profile"
+                class="nav-item"
+                data-page="profile"
+            >
+                <span class="nav-icon">♙</span>
+                <span>Profile</span>
+            </a>
+
+        </nav>
+
+
+        <!-- SIDEBAR BOTTOM -->
+
+        <div class="sidebar-bottom">
+
+            <button
+                class="logout-button"
+                id="logoutButton"
+            >
+                <span>↪</span>
+                Logout
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =================================
+         MOBILE OVERLAY
+    ================================== -->
+
+    <div
+        class="sidebar-overlay"
+        id="sidebarOverlay">
+    </div>
+
+
+    <!-- =================================
+         MAIN CONTENT
+    ================================== -->
+
+    <main class="dashboard-main">
+
+
+        <!-- TOP HEADER -->
+
+        <header class="dashboard-header">
+
+            <button
+                class="mobile-menu-button"
+                id="mobileMenuButton"
+            >
+                ☰
+            </button>
+
+
+            <div class="header-title">
+
+                <p>
+                    YOUR HEALTH SPACE
+                </p>
+
+                <h1>
+                    Dashboard
+                </h1>
+
+            </div>
+
+
+            <div class="header-actions">
+
+                <div class="notification-button">
+                    ♡
+                </div>
+
+
+                <a
+                    href="/profile"
+                    class="header-profile"
+                >
+
+                    <div
+                        class="header-avatar"
+                        id="headerAvatar"
+                    >
+                        S
+                    </div>
+
+                    <div class="header-profile-text">
+
+                        <strong id="headerUserName">
+                            User
+                        </strong>
+
+                        <span>
+                            View Profile
+                        </span>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+        </header>
+
+
+        <!-- =================================
+             DASHBOARD CONTENT
+        ================================== -->
+
+        <div class="dashboard-content">
+
+
+            <!-- WELCOME -->
+
+            <section class="welcome-section">
+
+                <div>
+
+                    <p class="welcome-small">
+                        GOOD TO SEE YOU
+                    </p>
+
+                    <h2>
+                        Welcome back,
+                        <span id="welcomeUserName">
+                            User
+                        </span>! 👋
+                    </h2>
+
+                    <p>
+                        Let's make today another step
+                        toward a healthier you.
+                    </p>
+
+                </div>
+
+
+                <div class="today-date">
+
+                    <span>
+                        TODAY
+                    </span>
+
+                    <strong id="todayDate">
+                        --
+                    </strong>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================
+                 QUICK STATISTICS
+            ================================== -->
+
+            <section class="stats-grid">
+
+
+                <!-- GOAL -->
+
+                <div class="stat-card goal-card">
+
+                    <div class="stat-icon">
+                        ◎
+                    </div>
+
+                    <div class="stat-content">
+
+                        <span>
+                            MAIN GOAL
+                        </span>
+
+                        <strong id="mainGoal">
+                            Build Muscle
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- WEIGHT -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon weight-icon">
+                        ⚖
+                    </div>
+
+                    <div class="stat-content">
+
+                        <span>
+                            CURRENT WEIGHT
+                        </span>
+
+                        <strong>
+                            <span id="currentWeight">
+                                --
+                            </span>
+                            kg
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- WATER -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon water-icon">
+                        💧
+                    </div>
+
+                    <div class="stat-content">
+
+                        <span>
+                            DAILY WATER
+                        </span>
+
+                        <strong>
+                            <span id="waterGoal">
+                                2000
+                            </span>
+                            ml
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SLEEP -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon sleep-icon">
+                        ☾
+                    </div>
+
+                    <div class="stat-content">
+
+                        <span>
+                            SLEEP TARGET
+                        </span>
+
+                        <strong>
+                            7–8 hrs
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            
+<!-- =================================
+     WEEKLY GOAL TRACKER
+================================== -->
+
+<section class="section-block weekly-goal-section">
+
+    <div class="section-heading">
+        <div>
+            <p>YOUR LONG-TERM JOURNEY</p>
+            <h2>Weekly Goal Tracker</h2>
+        </div>
+
+        <span id="weeklyGoalStatus">Not started</span>
+    </div>
+
+    <div class="weekly-goal-card">
+
+        <div class="weekly-goal-header">
+            <div class="weekly-goal-icon">📅</div>
+
+            <div>
+                <h3 id="weeklyGoalTitle">Your Goal Timeline</h3>
+                <p id="weeklyGoalMessage">
+                    Set your goal to start tracking your weeks.
+                </p>
+            </div>
+        </div>
+
+        <div id="weeklyGoalEmpty" class="weekly-goal-empty">
+            <p>
+                Your weekly progress will appear here once
+                your goal and start date have been recorded.
+            </p>
+        </div>
+
+        <div id="weeklyGoalDetails" hidden>
+
+            <div class="weekly-goal-stats">
+
+                <div class="weekly-goal-stat">
+                    <span>Total Weeks</span>
+                    <strong id="weeklyTotalWeeks">--</strong>
+                </div>
+
+                <div class="weekly-goal-stat">
+                    <span>Weeks Passed</span>
+                    <strong id="weeklyWeeksPassed">--</strong>
+                </div>
+
+                <div class="weekly-goal-stat">
+                    <span>Weeks Remaining</span>
+                    <strong id="weeklyWeeksRemaining">--</strong>
+                </div>
+
+            </div>
+
+            <div class="weekly-goal-progress-area">
+
+                <div class="weekly-goal-progress-labels">
+                    <span>Goal Timeline</span>
+                    <span id="weeklyGoalPercentage">--</span>
+                </div>
+
+                <div
+                    class="weekly-goal-progress-track"
+                    role="progressbar"
+                    aria-label="Weekly goal progress"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    aria-valuenow="0"
+                    id="weeklyGoalProgressTrack"
+                >
+                    <div
+                        class="weekly-goal-progress-fill"
+                        id="weeklyGoalProgressFill"
+                    ></div>
+                </div>
+
+                <p id="weeklyGoalRecordDate">
+                    Weekly history will appear here.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+            <!-- =================================
+                 TODAY'S PROGRESS
+            ================================== -->
+
+            <section class="section-block">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <p>
+                            DAILY TRACKER
+                        </p>
+
+                        <h2>
+                            Today's Progress
+                        </h2>
+
+                    </div>
+
+                    <span>
+                        Keep going!
+                    </span>
+
+                </div>
+
+
+                <div class="progress-grid">
+
+
+                    <!-- MEALS -->
+
+                    <div class="progress-card">
+
+                        <div class="progress-card-top">
+
+                            <div class="progress-card-icon">
+                                ♨
+                            </div>
+
+                            <span>
+                                Meals
+                            </span>
+                        
+                        </div>
+
+                        <div class="progress-number">
+
+                            <strong id="dashboardMealValue">
+                                0/0
+                            </strong>
+
+                            <span>
+                                meals
+                            </span>
+                        
+                        </div>
+
+                        <div class="progress-track">
+
+                            <div
+                                class="progress-fill meal-progress"
+                                id="dashboardMealProgress"
+                            ></div>
+
+                        </div>
+
+                        <p id="dashboardMealMessage">
+                            No meal records for today.
+                        </p>
+
+                    </div>
+
+
+                    <!-- EXERCISE -->
+
+                    <div class="progress-card">
+
+                        <div class="progress-card-top">
+
+                            <div class="progress-card-icon">
+                                ♧
+                            </div>
+
+                            <span>
+                                Exercise
+                            </span>
+
+                        </div>
+
+                        <div class="progress-number">
+
+                            <strong id="dashboardExerciseValue">
+                                0/0
+                            </strong>
+
+                            <span>
+                                workout
+                            </span>
+
+                        </div>
+
+                        <div class="progress-track">
+
+                            <div
+                                class="progress-fill exercise-progress"
+                                id="dashboardExerciseProgress"
+                            ></div>
+
+                        </div>
+
+                        <p id="dashboardExerciseMessage">
+                            No workout completed today.
+                        </p>
+
+                    </div>
+
+
+                    <!-- WATER -->
+
+                    <div class="progress-card">
+
+                        <div class="progress-card-top">
+
+                            <div class="progress-card-icon">
+                                💧
+                            </div>
+
+                            <span>
+                                Water
+                            </span>
+
+                        </div>
+
+                        <div class="progress-number">
+
+                            <strong id="dashboardWaterValue">
+                                0 ml
+                            </strong>
+
+                            <span id="dashboardWaterTarget">
+                                / 0 ml
+                            </span>
+
+                        </div>
+
+                        <div class="progress-track">
+
+                            <div
+                                class="progress-fill water-progress"
+                                id="dashboardWaterProgress"
+                            ></div>
+
+                        </div>
+
+                        <p id="dashboardWaterMessage">
+                            No water intake recorded today.
+                        </p>
+
+                    </div>
+
+
+                    <!-- SLEEP -->
+
+                        <div class="progress-card">
+
+                            <div class="progress-card-top">
+
+                                <div class="progress-card-icon">
+                                    ☾
+                                </div>
+
+                                <span>
+                                    Sleep
+                                </span>
+
+                            </div>
+
+                            <div class="progress-number">
+
+                                <strong id="dashboardSleepValue">
+                                    0
+                                </strong>
+
+                                <span id="dashboardSleepTarget">
+                                    / 0 hrs
+                                </span>
+
+                            </div>
+
+                            <div class="progress-track">
+
+                                <div
+                                    class="progress-fill sleep-progress"
+                                    id="dashboardSleepProgress"
+                                ></div>
+
+                            </div>
+
+                            <p id="dashboardSleepMessage">
+                                No sleep record for today.
+                            </p>
+
+                        </div>
+                    
+                    </div>
+
+            </section>
+
+
+            <!-- =================================
+            PROGRESS ANALYTICS
+            ================================== -->
+
+            <section class="section-block">
+
+                <div class="section-heading">
+
+                    <div>
+                        
+                        <p>
+                            PROGRESS ANALYTICS
+                        </p>
+                        
+                        <h2>
+                            Your Progress
+                        </h2>
+                    
+                    </div>
+                    
+                    <span id="analyticsSummary">
+                        
+                        Keep tracking your journey!
+                    </span>
+                </div>
+
+
+                <!-- =================================
+                ANALYTICS CARD
+                ================================== -->
+
+                <div class="analytics-card">
+
+
+                    <!-- PERIOD BUTTONS -->
+
+                    <div class="analytics-top">
+                        
+                        <div class="analytics-tabs">
+                            
+                            <button
+                            
+                                type="button"
+                                class="analytics-tab active"
+                                data-period="weekly"
+                            >
+                                Weekly
+                            
+                            </button>
+
+                            <button
+                                type="button"
+                                class="analytics-tab"
+                                data-period="monthly"
+                            >
+                                Monthly
+                            </button>
+
+                            <button
+                                type="button"
+                                class="analytics-tab"
+                                data-period="yearly"
+                            >
+                                Yearly
+                            </button>
+                        
+                        </div>
+
+
+                    
+                    
+                    </div>
+
+
+                    <!-- =================================
+                    CHART
+                    ================================== -->
+
+                    <div class="analytics-chart-container">
+
+                        
+                        
+                        <div
+                        
+                            class="analytics-chart"
+                            id="analyticsChart"
+                        > 
+
+                            <!--
+                            JavaScript will create
+                            the chart bars here.
+                            -->
+                        
+                        </div>
+                    
+                    </div>
+
+
+                    <!-- =================================
+                    CHART LEGEND
+                    ================================== -->
+
+                    <div class="analytics-legend">
+
+                        <div class="analytics-legend-item">
+
+                            <span class="legend-dot meals-dot"></span>
+
+                            
+
+                        </div>
+
+
+                        <div class="analytics-legend-item">
+
+                            <span class="legend-dot exercise-dot"></span>
+
+                            
+
+                        </div>
+
+
+                        <div class="analytics-legend-item">
+
+                            <span class="legend-dot water-dot"></span>
+
+                            
+
+                        </div>
+
+
+                        <div class="analytics-legend-item">
+
+                            <span class="legend-dot sleep-dot"></span>
+
+                            
+
+                        </div>
+                    
+                    </div>
+                
+                </div>
+
+            </section>
+
+
+            <!-- =================================
+                 HEALTH TIP
+            ================================== -->
+
+            <section class="health-tip">
+
+                <div class="tip-icon">
+                    ✦
+                </div>
+
+                <div>
+
+                    <p>
+                        TODAY'S HEALTH TIP
+                    </p>
+
+                    <h3>
+                        Small habits create big changes.
+                    </h3>
+
+                    <span>
+                        Focus on consistency rather than perfection.
+                        Every healthy choice you make today counts.
+                    </span>
+
+                </div>
+
+            </section>
+
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<script
+    src="{{ url_for('static', filename='js/dashboard.js') }}">
+</script>
+
+</body>
+
+</html>

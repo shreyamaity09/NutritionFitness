@@ -1,0 +1,586 @@
+
+/* ==========================
+   GENERAL
+========================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    background: #e8f8fb;
+    color: #183b43;
+}
+
+
+/* ==========================
+   MAIN CONTAINER
+========================== */
+
+.auth-container {
+    min-height: 100vh;
+    display: flex;
+}
+
+
+/* ==========================
+   LEFT INFORMATION SIDE
+========================== */
+
+.auth-info {
+    width: 48%;
+    min-height: 100vh;
+
+    padding: 45px 7%;
+
+    background: linear-gradient(
+        145deg,
+        #bdeef4,
+        #dff8fa
+    );
+
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Decorative circles */
+
+.auth-info::before {
+    content: "";
+    width: 350px;
+    height: 350px;
+
+    position: absolute;
+    right: -150px;
+    top: -120px;
+
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.35);
+}
+
+.auth-info::after {
+    content: "";
+    width: 250px;
+    height: 250px;
+
+    position: absolute;
+    left: -120px;
+    bottom: -100px;
+
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+
+/* ==========================
+   LOGO
+========================== */
+
+.auth-logo {
+    text-decoration: none;
+    color: #174d57;
+
+    font-size: 25px;
+    font-weight: 800;
+
+    position: relative;
+    z-index: 2;
+}
+
+.auth-logo span {
+    margin-left: 5px;
+}
+
+
+/* ==========================
+   INFORMATION CONTENT
+========================== */
+
+.auth-info-content {
+    max-width: 520px;
+    margin: auto 0;
+
+    position: relative;
+    z-index: 2;
+}
+
+.small-heading,
+.form-small-heading {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+
+    color: #2a8995;
+
+    margin-bottom: 18px;
+}
+
+.auth-info h1 {
+    font-size: clamp(40px, 5vw, 65px);
+    line-height: 1.08;
+
+    margin-bottom: 25px;
+
+    color: #17414a;
+}
+
+.auth-info h1 span {
+    display: block;
+    color: #278c97;
+}
+
+.auth-info-content > p:not(.small-heading) {
+    font-size: 16px;
+    line-height: 1.8;
+
+    max-width: 470px;
+
+    color: #42666c;
+
+    margin-bottom: 30px;
+}
+
+
+/* ==========================
+   HEALTH POINTS
+========================== */
+
+.health-points {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.health-points div {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    color: #315b62;
+    font-size: 15px;
+}
+
+.health-points span {
+    width: 25px;
+    height: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: white;
+    color: #2a909c;
+
+    font-weight: bold;
+}
+
+
+/* ==========================
+   RIGHT FORM SIDE
+========================== */
+
+.auth-form-container {
+    width: 52%;
+
+    min-height: 100vh;
+
+    background: #ffffff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px;
+}
+
+.auth-form {
+    width: 100%;
+    max-width: 470px;
+}
+
+
+/* ==========================
+   FORM HEADING
+========================== */
+
+.form-small-heading {
+    margin-bottom: 10px;
+}
+
+.auth-form h2 {
+    font-size: 34px;
+    color: #193e46;
+
+    margin-bottom: 10px;
+}
+
+.form-subtitle {
+    color: #789096;
+    font-size: 15px;
+
+    margin-bottom: 32px;
+}
+
+
+/* ==========================
+   INPUTS
+========================== */
+
+.input-group {
+    margin-bottom: 21px;
+}
+
+.input-group label {
+    display: block;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    color: #31555c;
+
+    margin-bottom: 8px;
+}
+
+.input-group input {
+    width: 100%;
+
+    height: 53px;
+
+    border: 1px solid #d6e5e8;
+    border-radius: 12px;
+
+    padding: 0 16px;
+
+    font-size: 15px;
+
+    outline: none;
+
+    color: #24454b;
+    background: #fbfeff;
+
+    transition: 0.25s;
+}
+
+.input-group input:focus {
+    border-color: #48aeb9;
+
+    box-shadow:
+        0 0 0 4px rgba(72, 174, 185, 0.12);
+}
+
+.input-group input::placeholder {
+    color: #a5b5b9;
+}
+
+
+/* ==========================
+   PASSWORD
+========================== */
+
+.password-box {
+    position: relative;
+}
+
+.password-box input {
+    padding-right: 70px;
+}
+
+.password-toggle {
+    position: absolute;
+
+    right: 14px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    border: none;
+    background: transparent;
+
+    color: #2c929d;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+/* ==========================
+   FORM OPTIONS
+========================== */
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin: 5px 0 25px;
+
+    font-size: 13px;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    color: #71878c;
+}
+
+.remember-me input {
+    accent-color: #369ca8;
+}
+
+.form-options a {
+    color: #3296a1;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+
+/* ==========================
+   LOGIN BUTTON
+========================== */
+
+.auth-button {
+    width: 100%;
+    height: 53px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: #318f9b;
+    color: white;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    transition: 0.25s;
+}
+
+.auth-button:hover {
+    background: #267d88;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(49, 143, 155, 0.2);
+}
+
+.auth-button span {
+    font-size: 20px;
+}
+
+
+/* ==========================
+   MESSAGE
+========================== */
+
+.form-message {
+    min-height: 20px;
+
+    text-align: center;
+
+    margin-top: 12px;
+
+    font-size: 13px;
+}
+
+
+/* ==========================
+   DIVIDER
+========================== */
+
+.divider {
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    margin: 27px 0;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+
+    height: 1px;
+    background: #e3edef;
+
+    flex: 1;
+}
+
+.divider span {
+    color: #9aaeb2;
+    font-size: 13px;
+}
+
+
+/* ==========================
+   GOOGLE BUTTON
+========================== */
+
+.google-button {
+    width: 100%;
+    height: 52px;
+
+    border: 1px solid #d8e5e8;
+    border-radius: 12px;
+
+    background: white;
+
+    color: #425b60;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    transition: 0.25s;
+}
+
+.google-button:hover {
+    background: #f6fbfc;
+    border-color: #b8d5d9;
+}
+
+.google-icon {
+    font-size: 18px;
+    font-weight: bold;
+    color: #4285f4;
+}
+
+
+/* ==========================
+   ACCOUNT TEXT
+========================== */
+
+.account-text {
+    text-align: center;
+
+    margin-top: 28px;
+
+    color: #7a8f94;
+    font-size: 14px;
+}
+
+.account-text a {
+    color: #2e929d;
+
+    font-weight: 700;
+
+    text-decoration: none;
+}
+
+
+/* ==========================
+   MOBILE LOGO
+========================== */
+
+.mobile-logo {
+    display: none;
+
+    text-decoration: none;
+
+    color: #258b96;
+
+    font-size: 24px;
+    font-weight: 800;
+
+    margin-bottom: 35px;
+}
+
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media (max-width: 850px) {
+
+    .auth-info {
+        display: none;
+    }
+
+    .auth-form-container {
+        width: 100%;
+        padding: 30px 25px;
+    }
+
+    .mobile-logo {
+        display: block;
+    }
+
+    .auth-form {
+        max-width: 500px;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .auth-form-container {
+        padding: 25px 20px;
+    }
+
+    .auth-form h2 {
+        font-size: 29px;
+    }
+
+    .form-options {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+}
+
+/* ==========================
+   REGISTRATION PAGE
+========================== */
+
+.terms-checkbox {
+    margin: 5px 0 20px;
+
+    line-height: 1.5;
+
+    cursor: pointer;
+}
+
+.terms-checkbox input {
+    flex-shrink: 0;
+
+    width: 15px;
+    height: 15px;
+
+    accent-color: #369ca8;
+}
+
+.register-button {
+    margin-top: 5px;
+}
+
+

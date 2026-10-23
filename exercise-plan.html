@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Exercise Plan | NutriTrack</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/feature.css') }}">
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <nav class="feature-navbar">
+
+        <div class="feature-logo">
+            <span>♥</span> NutriTrack
+        </div>
+
+        <a href="/dashboard" class="back-dashboard">
+            ← Dashboard
+        </a>
+
+    </nav>
+
+
+    <!-- =========================
+         MAIN CONTAINER
+    ========================== -->
+
+    <main class="feature-container">
+
+
+        <!-- PAGE HEADER -->
+
+        <section class="feature-header">
+
+            <div class="feature-icon">
+                🏋️
+            </div>
+
+            <h1>Personalized Exercise Plan</h1>
+
+            <p>
+                Create an exercise plan based on your weight,
+                height and fitness goal.
+            </p>
+
+        </section>
+
+
+        <!-- =========================
+             USER DETAILS
+        ========================== -->
+
+        <section class="meal-input-card" id="exerciseInputSection">
+
+            <h2>Tell us about your goal</h2>
+
+            <p class="section-description">
+                Enter your details to help us recommend suitable
+                exercises for you.
+            </p>
+
+
+            <div class="input-grid">
+
+
+                <!-- ORIGINAL WEIGHT -->
+
+                <div class="input-group">
+
+                    <label for="originalWeight">
+                        Original Weight
+                    </label>
+
+                    <div class="input-with-unit">
+
+                        <input
+                            type="number"
+                            id="originalWeight"
+                            placeholder="Enter your weight"
+                            min="1"
+                            step="0.1"
+                        >
+
+                        <span>kg</span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TARGET WEIGHT -->
+
+                <div class="input-group">
+
+                    <label for="targetWeight">
+                        Target Weight
+                    </label>
+
+                    <div class="input-with-unit">
+
+                        <input
+                            type="number"
+                            id="targetWeight"
+                            placeholder="Enter target weight"
+                            min="1"
+                            step="0.1"
+                        >
+
+                        <span>kg</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- HEIGHT -->
+
+            <div class="input-group full-width">
+
+                <label for="height">
+                    Height
+                </label>
+
+                <div class="input-with-unit">
+
+                    <input
+                        type="number"
+                        id="height"
+                        placeholder="Enter your height"
+                        min="50"
+                        max="250"
+                        step="0.1"
+                    >
+
+                    <span>cm</span>
+
+                </div>
+
+            </div>
+
+
+            <!-- ENTER BUTTON -->
+
+            <button
+                class="primary-feature-btn"
+                id="calculateExerciseWeeksBtn"
+                type="button"
+            >
+
+                Enter
+                <span>→</span>
+
+            </button>
+
+        </section>
+
+
+        <!-- =========================
+             ESTIMATED DAYS
+        ========================== -->
+
+        <section
+            class="estimate-card hidden"
+            id="exerciseEstimateSection"
+        >
+
+            <div class="estimate-icon">
+                📅
+            </div>
+
+
+            <div class="estimate-content">
+
+                <h2>Your Estimated Journey</h2>
+
+                <p id="exerciseEstimateMessage">
+                    Your estimated journey will appear here.
+                </p>
+
+
+                <div class="days-display">
+
+                    <strong id="exerciseEstimatedWeeks">
+                        0
+                    </strong>
+
+                    <span>weeks approximately</span>
+
+                </div>
+
+            </div>
+
+
+            <!-- RECOMMEND ARROW -->
+
+            <button
+                class="recommend-arrow"
+                id="exerciseRecommendBtn"
+                type="button"
+                aria-label="Recommend exercise plan"
+            >
+                →
+            </button>
+
+        </section>
+
+
+        <!-- =========================
+             RECOMMENDATION MESSAGE
+        ========================== -->
+
+        <section
+            class="recommend-message hidden"
+            id="exerciseRecommendMessage"
+        >
+
+            <div class="message-icon">
+                ✨
+            </div>
+
+            <div>
+
+                <h3>Ready for your exercise plan?</h3>
+
+                <p>
+                    Click the recommendation button to get
+                    your personalized exercise plan.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             EXERCISE PLAN
+        ========================== -->
+
+        <section
+            class="meal-plan-section hidden"
+            id="exercisePlanSection"
+        >
+
+            <div class="meal-plan-heading">
+
+                <div>
+
+                    <span class="small-title">
+                        YOUR RECOMMENDATION
+                    </span>
+
+                    <h2>Today's Exercise Plan</h2>
+
+                </div>
+
+
+                <div class="plan-badge">
+                    💪 Full Body
+                </div>
+
+            </div>
+
+
+            <!-- EXERCISE LIST -->
+
+            <div
+                class="meal-grid"
+                id="exerciseGrid"
+            >
+
+                <!-- Exercises are inserted by JavaScript -->
+
+            </div>
+
+
+            <!-- AGAIN MESSAGE -->
+
+            <div class="again-message">
+
+                <div class="again-icon">
+                    🔄
+                </div>
+
+                <div>
+
+                    <h3>Want a different exercise plan?</h3>
+
+                    <p>
+                        Click "Recommend Again" to refresh your
+                        exercise plan.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- AGAIN BUTTON -->
+
+            <button
+                class="again-btn"
+                id="exerciseAgainBtn"
+                type="button"
+            >
+
+                <span>↻</span>
+                Recommend Again
+
+            </button>
+            <button
+               id="completeExerciseButton"
+               class="complete-task-button"
+               type="button"
+            >
+               ✓ Complete Today's Exercise
+            </button>
+
+            <p
+               id="exerciseCompletionMessage"
+               class="completion-message">
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script src="{{ url_for('static', filename='js/exercise-plan.js') }}"></script>
+
+</body>
+</html>

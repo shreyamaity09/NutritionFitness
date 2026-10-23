@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Profile | NutriTrack</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/feature.css') }}">
+
+</head>
+
+
+<body>
+
+<div class="feature-page">
+
+
+    <!-- ==============================
+         PROFILE HEADER
+    =============================== -->
+
+    <div class="feature-header">
+
+        <a href="/dashboard" class="back-button">
+            ← Dashboard
+        </a>
+
+
+        <div class="feature-title">
+
+            <span class="feature-icon">
+                👤
+            </span>
+
+            <div>
+
+                <h1>My Profile</h1>
+
+                <p>
+                    View and manage your personal information.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==============================
+         PROFILE CARD
+    =============================== -->
+
+    <div class="profile-main-card">
+
+        <div class="profile-avatar">
+            👤
+        </div>
+
+
+        <div class="profile-main-info">
+
+            <h2 id="profileName">
+                NutriTrack User
+            </h2>
+
+            <p id="profileUsername">
+                @username
+            </p>
+
+            <span class="profile-badge">
+                NutriTrack Member
+            </span>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==============================
+         PERSONAL INFORMATION
+    =============================== -->
+
+    <section class="profile-section">
+
+        <div class="profile-section-title">
+
+            <div class="profile-title-icon">
+                👤
+            </div>
+
+            <div>
+
+                <h2>Personal Information</h2>
+
+                <p>
+                    Your account details
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="profile-info-grid">
+
+
+            <!-- NAME -->
+
+            <div class="profile-info-card">
+
+                <span class="profile-label">
+                    Full Name
+                </span>
+
+                <strong id="profileFullName">
+                    Not available
+                </strong>
+
+            </div>
+
+
+            <!-- USERNAME -->
+
+            <div class="profile-info-card">
+
+                <span class="profile-label">
+                    Username
+                </span>
+
+                <strong id="profileUserName">
+                    Not available
+                </strong>
+
+            </div>
+
+
+            <!-- EMAIL -->
+
+            <div class="profile-info-card">
+
+                <span class="profile-label">
+                    Email Address
+                </span>
+
+                <strong id="profileEmail">
+                    Not available
+                </strong>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==============================
+         BODY INFORMATION
+    =============================== -->
+
+    <section class="profile-section">
+
+        <div class="profile-section-title">
+
+            <div class="profile-title-icon">
+                ⚖️
+            </div>
+
+            <div>
+
+                <h2>Body Information</h2>
+
+                <p>
+                    Your current body details
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="profile-info-grid">
+
+
+            <!-- AGE -->
+
+            <div class="profile-info-card">
+
+                <span class="profile-label">
+                    Age
+                </span>
+
+                <strong id="profileAge">
+                    Not available
+                </strong>
+
+            </div>
+
+
+            <!-- HEIGHT -->
+
+            <div class="profile-info-card">
+
+                <span class="profile-label">
+                    Height
+                </span>
+
+                <strong id="profileHeight">
+                    Not available
+                </strong>
+
+            </div>
+
+
+            <!-- WEIGHT -->
+
+            <div class="profile-info-card">
+
+                <span class="profile-label">
+                    Current Weight
+                </span>
+
+                <strong id="profileWeight">
+                    Not available
+                </strong>
+
+            </div>
+
+
+            <!-- TARGET WEIGHT -->
+
+            <div class="profile-info-card">
+
+                <span class="profile-label">
+                    Target Weight
+                </span>
+
+                <strong id="profileTargetWeight">
+                    Not available
+                </strong>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==============================
+         FITNESS INFORMATION
+    =============================== -->
+
+    <section class="profile-section">
+
+        <div class="profile-section-title">
+
+            <div class="profile-title-icon">
+                🏃
+            </div>
+
+            <div>
+
+                <h2>Fitness Information</h2>
+
+                <p>
+                    Your fitness preferences and goals
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="profile-info-grid">
+
+
+            <!-- FITNESS GOAL -->
+
+            <div class="profile-info-card profile-wide-card">
+
+                <span class="profile-label">
+                    Main Fitness Goal
+                </span>
+
+                <strong id="profileGoal">
+                    Not available
+                </strong>
+
+            </div>
+
+
+            <!-- EXERCISE FREQUENCY -->
+
+            <div class="profile-info-card">
+
+                <span class="profile-label">
+                    Exercise Frequency
+                </span>
+
+                <strong id="profileExercise">
+                    Not available
+                </strong>
+
+            </div>
+
+
+            <!-- SLEEP -->
+
+            <div class="profile-info-card">
+
+                <span class="profile-label">
+                    Sleep Duration
+                </span>
+
+                <strong id="profileSleep">
+                    Not available
+                </strong>
+
+            </div>
+
+
+            <!-- ALLERGIES -->
+
+            <div class="profile-info-card profile-wide-card">
+
+                <span class="profile-label">
+                    Allergies
+                </span>
+
+                <strong id="profileAllergies">
+                    None specified
+                </strong>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==============================
+         PROFILE ACTIONS
+    =============================== -->
+
+    <div class="profile-actions">
+
+        <button
+            type="button"
+            class="profile-edit-button"
+            onclick="editProfile()">
+
+            ✏️ Edit Profile
+
+        </button>
+
+
+        <button
+            type="button"
+            class="profile-dashboard-button"
+            onclick="goToDashboard()">
+
+            📊 Back to Dashboard
+
+        </button>
+
+    </div>
+
+
+
+    <!-- ==============================
+         FOOTER
+    =============================== -->
+
+    <div class="feature-page-footer">
+
+        <p>
+            NutriTrack • HEALTHIER YOU, EVERYDAY
+        </p>
+
+    </div>
+
+
+</div>
+
+
+<script src="{{ url_for('static', filename='js/profile.js') }}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Account | NutriTrack</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/auth.css') }}">
+</head>
+
+<body>
+
+<div class="auth-container">
+
+    <!-- LEFT SIDE -->
+    <div class="auth-info">
+
+        <a href="/" class="auth-logo">
+            ♥ <span>NutriTrack</span>
+        </a>
+
+        <div class="auth-info-content">
+
+            <p class="small-heading">
+                START YOUR JOURNEY
+            </p>
+
+            <h1>
+                Build a
+                <span>Healthier You.</span>
+            </h1>
+
+            <p>
+                Create your NutriTrack account and get personalized
+                nutrition, fitness, sleep and hydration guidance
+                based on your lifestyle.
+            </p>
+
+            <div class="health-points">
+
+                <div>
+                    <span>✓</span>
+                    Personalized health recommendations
+                </div>
+
+                <div>
+                    <span>✓</span>
+                    Daily meal and exercise plans
+                </div>
+
+                <div>
+                    <span>✓</span>
+                    Track your progress over time
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="auth-form-container">
+
+        <div class="auth-form">
+
+            <a href="/" class="mobile-logo">
+                ♥ NutriTrack
+            </a>
+
+            <p class="form-small-heading">
+                CREATE ACCOUNT
+            </p>
+
+            <h2>
+                Start your journey
+            </h2>
+
+            <p class="form-subtitle">
+                Create your account to get started.
+            </p>
+
+            <!-- REGISTER FORM -->
+
+            <form id="registerForm">
+
+                <!-- NAME -->
+
+                <div class="input-group">
+
+                    <label for="name">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Enter your full name"
+                        required
+                    >
+
+                </div>
+
+                <!-- USERNAME -->
+
+                <div class="input-group">
+
+                    <label for="username">
+                        Username
+                    </label>
+
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        placeholder="Choose a username"
+                        required
+                    >
+
+                </div>
+
+                <!-- EMAIL -->
+
+                <div class="input-group">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email address"
+                        required
+                    >
+
+                </div>
+                <!-- PASSWORD -->
+
+                <div class="input-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <div class="password-box">
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Create a password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            id="togglePassword"
+                            class="password-toggle"
+                        >
+                            Show
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CONFIRM PASSWORD -->
+
+                <div class="input-group">
+
+                    <label for="confirmPassword">
+                        Confirm Password
+                    </label>
+
+                    <div class="password-box">
+
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            name="confirmPassword"
+                            placeholder="Confirm your password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            id="toggleConfirmPassword"
+                            class="password-toggle"
+                        >
+                            Show
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TERMS -->
+
+                <label class="remember-me terms-checkbox">
+
+                    <input
+                        type="checkbox"
+                        id="terms"
+                        required
+                    >
+
+                    <span>
+                        I agree to the NutriTrack terms and conditions.
+                    </span>
+
+                </label>
+
+
+                <!-- REGISTER BUTTON -->
+
+                <button
+                    type="submit"
+                    class="auth-button register-button"
+                >
+                    Create Account
+                    <span>→</span>
+                </button>
+
+
+                <!-- MESSAGE -->
+
+                <div
+                    id="registerMessage"
+                    class="form-message"
+                ></div>
+
+            </form>
+
+
+            <!-- DIVIDER -->
+
+            <div class="divider">
+                <span>or</span>
+            </div>
+
+
+            <!-- GOOGLE -->
+
+            <button
+                type="button"
+                class="google-button"
+                onclick="googleRegister()"
+            >
+                <span class="google-icon">G</span>
+                Continue with Google
+            </button>
+
+
+            <!-- LOGIN -->
+
+            <p class="account-text">
+
+                Already have an account?
+
+                <a href="/login">
+                    Login
+                </a>
+
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="{{ url_for('static', filename='js/register.js') }}"></script>
+
+</body>
+</html>
+

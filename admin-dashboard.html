@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard | NutriTrack</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/admin.css') }}">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="admin-sidebar">
+
+        <div class="admin-logo">
+            <span class="logo-heart">♥</span>
+            <span>NutriTrack</span>
+        </div>
+
+        <div class="admin-label">
+            ADMIN PANEL
+        </div>
+
+        <nav class="admin-nav">
+
+            <button class="admin-nav-item active"
+                    onclick="showAdminSection('overview', this)">
+                <i class="fa-solid fa-chart-pie"></i>
+                <span>Overview</span>
+            </button>
+
+            <button class="admin-nav-item"
+                    onclick="showAdminSection('users', this)">
+                <i class="fa-solid fa-users"></i>
+                <span>Users</span>
+            </button>
+
+            <button class="admin-nav-item"
+                    onclick="showAdminSection('plans', this)">
+                <i class="fa-solid fa-clipboard-list"></i>
+                <span>Plans</span>
+            </button>
+
+            <button class="admin-nav-item"
+                    onclick="showAdminSection('records', this)">
+                <i class="fa-solid fa-database"></i>
+                <span>User Records</span>
+            </button>
+
+        </nav>
+
+        <div class="admin-sidebar-bottom">
+
+            <button class="admin-nav-item" onclick="goToHome()">
+                <i class="fa-solid fa-house"></i>
+                <span>Website</span>
+            </button>
+
+            <button class="admin-nav-item logout-admin"
+                    onclick="adminLogout()">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Logout</span>
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="admin-main">
+
+        <!-- TOP BAR -->
+
+        <header class="admin-topbar">
+
+            <div>
+                <p class="admin-small-title">ADMINISTRATION</p>
+                <h1>Admin Dashboard</h1>
+            </div>
+
+            <div class="admin-profile">
+
+                <div class="admin-avatar">
+                    <i class="fa-solid fa-user-shield"></i>
+                </div>
+
+                <div>
+                    <strong>Administrator</strong>
+                    <span>Admin</span>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- ================= OVERVIEW ================= -->
+
+        <section id="overview" class="admin-section active">
+
+            <div class="admin-welcome">
+                <div>
+                    <span>Welcome back 👋</span>
+                    <h2>Manage NutriTrack</h2>
+                    <p>
+                        Monitor users, plans and health records
+                        from one place.
+                    </p>
+                </div>
+
+                <div class="admin-welcome-icon">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                </div>
+            </div>
+
+
+            <!-- STATISTICS -->
+
+            <div class="admin-stats">
+
+                <div class="admin-stat-card">
+                    <div class="admin-stat-icon users-icon">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+
+                    <div>
+                        <span>Total Users</span>
+                        <h3 id="totalUsers">0</h3>
+                        <small>Registered users</small>
+                    </div>
+                </div>
+
+
+                <div class="admin-stat-card">
+                    <div class="admin-stat-icon meal-icon">
+                        <i class="fa-solid fa-utensils"></i>
+                    </div>
+
+                    <div>
+                        <span>Meal Plans</span>
+                        <h3 id="totalMealPlans">0</h3>
+                        <small>Created plans</small>
+                    </div>
+                </div>
+
+
+                <div class="admin-stat-card">
+                    <div class="admin-stat-icon exercise-icon">
+                        <i class="fa-solid fa-dumbbell"></i>
+                    </div>
+
+                    <div>
+                        <span>Exercise Plans</span>
+                        <h3 id="totalExercisePlans">0</h3>
+                        <small>Workout plans</small>
+                    </div>
+                </div>
+
+
+                <div class="admin-stat-card">
+                    <div class="admin-stat-icon record-icon">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+
+                    <div>
+                        <span>Progress Records</span>
+                        <h3 id="totalProgress">0</h3>
+                        <small>User records</small>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- QUICK MANAGEMENT -->
+
+            <div class="admin-content-grid">
+
+                <div class="admin-panel">
+
+                    <div class="panel-heading">
+                        <div>
+                            <h3>Quick Management</h3>
+                            <p>Manage different parts of the system.</p>
+                        </div>
+                    </div>
+
+
+                    <div class="quick-management">
+
+                        <button onclick="showAdminSection('users')">
+                            <i class="fa-solid fa-users"></i>
+                            <span>
+                                <strong>Manage Users</strong>
+                                <small>View and manage users</small>
+                            </span>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+
+
+                        <button onclick="showAdminSection('plans')">
+                            <i class="fa-solid fa-clipboard-list"></i>
+                            <span>
+                                <strong>Manage Plans</strong>
+                                <small>Meal and exercise plans</small>
+                            </span>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+
+
+                        <button onclick="showAdminSection('records')">
+                            <i class="fa-solid fa-database"></i>
+                            <span>
+                                <strong>User Records</strong>
+                                <small>View health records</small>
+                            </span>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SYSTEM SUMMARY -->
+
+                <div class="admin-panel">
+
+                    <div class="panel-heading">
+                        <div>
+                            <h3>System Summary</h3>
+                            <p>Current system information.</p>
+                        </div>
+                    </div>
+
+                    <div class="system-summary">
+
+                        <div>
+                            <span>System Status</span>
+                            <strong class="status-active">
+                                ● Active
+                            </strong>
+                        </div>
+
+                        <div>
+                            <span>Database</span>
+                            <strong>MongoDB</strong>
+                        </div>
+
+                        <div>
+                            <span>Backend</span>
+                            <strong>Flask</strong>
+                        </div>
+
+                        <div>
+                            <span>Frontend</span>
+                            <strong>HTML / CSS / JS</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= USERS ================= -->
+
+        <section id="users" class="admin-section">
+
+            <div class="section-title-row">
+
+                <div>
+                    <span class="admin-small-title">USER MANAGEMENT</span>
+                    <h2>Registered Users</h2>
+                    <p>View and manage NutriTrack users.</p>
+                </div>
+
+                <div class="user-count">
+                    <i class="fa-solid fa-users"></i>
+                    <span id="userCountText">0 Users</span>
+                </div>
+
+            </div>
+
+
+            <!-- SEARCH -->
+
+            <div class="admin-search-box">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    type="text"
+                    id="userSearch"
+                    placeholder="Search by name, username or email..."
+                    onkeyup="searchUsers()">
+
+            </div>
+
+
+            <!-- USER TABLE -->
+
+            <div class="admin-table-container">
+
+                <table class="admin-table">
+
+                    <thead>
+                        <tr>
+                            <th>User</th>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Goal</th>
+                            <th>Account Activity</th>
+                            <th>Track Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="usersTableBody">
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= PLANS ================= -->
+
+        <section id="plans" class="admin-section">
+
+            <div class="section-title-row">
+
+                <div>
+                    <span class="admin-small-title">PLAN MANAGEMENT</span>
+                    <h2>Plans Overview</h2>
+                    <p>Monitor plans created for users.</p>
+                </div>
+
+            </div>
+
+
+            <div class="plan-management-grid">
+
+                <div class="plan-management-card">
+
+                    <div class="plan-large-icon">
+                        <i class="fa-solid fa-utensils"></i>
+                    </div>
+
+                    <h3>Meal Plans</h3>
+
+                    <strong id="mealPlanNumber">0</strong>
+
+                    <p>
+                        Personalized meal plans generated
+                        for NutriTrack users.
+                    </p>
+
+                    <button onclick="viewPlanInfo('meal')">
+                        View Details
+                    </button>
+
+                </div>
+
+
+                <div class="plan-management-card">
+
+                    <div class="plan-large-icon">
+                        <i class="fa-solid fa-dumbbell"></i>
+                    </div>
+
+                    <h3>Exercise Plans</h3>
+
+                    <strong id="exercisePlanNumber">0</strong>
+
+                    <p>
+                        Structured workout plans
+                        created for users.
+                    </p>
+
+                    <button onclick="viewPlanInfo('exercise')">
+                        View Details
+                    </button>
+
+                </div>
+
+
+                <div class="plan-management-card">
+
+                    <div class="plan-large-icon">
+                        <i class="fa-solid fa-bed"></i>
+                    </div>
+
+                    <h3>Sleep Schedules</h3>
+
+                    <strong id="sleepNumber">0</strong>
+
+                    <p>
+                        Personalized sleep schedules
+                        stored for users.
+                    </p>
+
+                    <button onclick="viewPlanInfo('sleep')">
+                        View Details
+                    </button>
+
+                </div>
+
+
+                <div class="plan-management-card">
+
+                    <div class="plan-large-icon">
+                        <i class="fa-solid fa-droplet"></i>
+                    </div>
+
+                    <h3>Water Records</h3>
+
+                    <strong id="waterNumber">0</strong>
+
+                    <p>
+                        Daily water intake records
+                        maintained for users.
+                    </p>
+
+                    <button onclick="viewPlanInfo('water')">
+                        View Details
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= USER RECORDS ================= -->
+
+        <section id="records" class="admin-section">
+
+            <div class="section-title-row">
+
+                <div>
+                    <span class="admin-small-title">
+                        HEALTH RECORDS
+                    </span>
+
+                    <h2>User Records</h2>
+
+                    <p>
+                        Overview of stored user health information.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="record-management-grid">
+
+                <div class="record-card">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <h3>Progress</h3>
+                    <strong id="recordProgress">0</strong>
+                    <span>Progress records</span>
+                </div>
+
+
+                <div class="record-card">
+                    <i class="fa-solid fa-droplet"></i>
+                    <h3>Water Intake</h3>
+                    <strong id="recordWater">0</strong>
+                    <span>Water records</span>
+                </div>
+
+
+                <div class="record-card">
+                    <i class="fa-solid fa-bed"></i>
+                    <h3>Sleep</h3>
+                    <strong id="recordSleep">0</strong>
+                    <span>Sleep records</span>
+                </div>
+
+
+                <div class="record-card">
+                    <i class="fa-solid fa-utensils"></i>
+                    <h3>Meals</h3>
+                    <strong id="recordMeals">0</strong>
+                    <span>Meal records</span>
+                </div>
+
+            </div>
+
+
+            <div class="admin-info-box">
+
+                <i class="fa-solid fa-circle-info"></i>
+
+                <div>
+                    <strong>Admin access</strong>
+
+                    <p>
+                        Later, these records will be connected
+                        to MongoDB so the administrator can view
+                        and manage records belonging to individual users.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script src="{{ url_for('static', filename='js/admin.js') }}"></script>
+
+</body>
+</html>

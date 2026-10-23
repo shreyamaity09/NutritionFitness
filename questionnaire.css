@@ -1,0 +1,601 @@
+/* ==========================
+   QUESTIONNAIRE
+========================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    min-height: 100vh;
+
+    background: #e8f8fb;
+
+    color: #183f47;
+}
+
+
+/* ==========================
+   PAGE
+========================== */
+
+.questionnaire-page {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* ==========================
+   HEADER
+========================== */
+
+.questionnaire-header {
+    height: 80px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 7%;
+
+    background: rgba(255, 255, 255, 0.92);
+
+    border-bottom: 1px solid #dcecef;
+}
+
+.questionnaire-logo {
+    text-decoration: none;
+
+    color: #278b96;
+
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.questionnaire-logo span {
+    margin-left: 5px;
+}
+
+.step-counter {
+    color: #789196;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/* ==========================
+   PROGRESS
+========================== */
+
+.progress-container {
+    width: 100%;
+
+    background: white;
+
+    padding: 0 7% 15px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 5px;
+
+    background: #e1eef0;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 9%;
+
+    height: 100%;
+
+    background: #3298a4;
+
+    border-radius: 20px;
+
+    transition: width 0.4s ease;
+}
+
+
+/* ==========================
+   MAIN
+========================== */
+
+.questionnaire-main {
+    flex: 1;
+
+    display: flex;
+    justify-content: center;
+
+    padding: 45px 20px 60px;
+}
+
+.questionnaire-card {
+    width: 100%;
+    max-width: 850px;
+
+    background: white;
+
+    border-radius: 24px;
+
+    padding: 45px 55px;
+
+    box-shadow:
+        0 20px 60px rgba(42, 110, 120, 0.08);
+}
+
+
+/* ==========================
+   INTRO
+========================== */
+
+.question-intro {
+    text-align: center;
+
+    padding-bottom: 35px;
+
+    border-bottom: 1px solid #edf3f4;
+
+    margin-bottom: 35px;
+}
+
+.question-icon {
+    width: 52px;
+    height: 52px;
+
+    margin: 0 auto 18px;
+
+    border-radius: 16px;
+
+    background: #e4f7f9;
+
+    color: #318f9b;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 24px;
+}
+
+.question-label {
+    color: #31939f;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 12px;
+}
+
+.question-intro h1 {
+    font-size: 38px;
+
+    line-height: 1.15;
+
+    color: #193f47;
+
+    margin-bottom: 14px;
+}
+
+.question-intro h1 span {
+    color: #31939f;
+}
+
+.question-description {
+    max-width: 600px;
+
+    margin: auto;
+
+    color: #819398;
+
+    line-height: 1.7;
+
+    font-size: 14px;
+}
+
+
+/* ==========================
+   QUESTION STEPS
+========================== */
+
+.question-step {
+    display: none;
+
+    animation: questionAppear 0.35s ease;
+}
+
+.question-step.active {
+    display: block;
+}
+
+@keyframes questionAppear {
+
+    from {
+        opacity: 0;
+        transform: translateX(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+}
+
+
+/* ==========================
+   QUESTION TEXT
+========================== */
+
+.question-number {
+    color: #53aab4;
+
+    font-size: 13px;
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 10px;
+}
+
+.question-step h2 {
+    color: #1d444c;
+
+    font-size: 29px;
+
+    margin-bottom: 8px;
+}
+
+.question-help {
+    color: #8a9da1;
+
+    font-size: 14px;
+
+    margin-bottom: 25px;
+}
+
+
+/* ==========================
+   NUMBER INPUT
+========================== */
+
+.input-with-unit {
+    position: relative;
+
+    max-width: 500px;
+}
+
+.input-with-unit input {
+    width: 100%;
+
+    height: 58px;
+
+    border: 1px solid #d7e7e9;
+
+    border-radius: 13px;
+
+    background: #fbfeff;
+
+    padding: 0 85px 0 18px;
+
+    outline: none;
+
+    color: #27484f;
+
+    font-size: 16px;
+
+    transition: 0.25s;
+}
+
+.input-with-unit input:focus {
+    border-color: #4baab5;
+
+    box-shadow:
+        0 0 0 4px rgba(75, 170, 181, 0.1);
+}
+
+.input-with-unit span {
+    position: absolute;
+
+    right: 18px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: #7d969b;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/* ==========================
+   DATE / NORMAL INPUT
+========================== */
+
+.normal-input {
+    width: 100%;
+    max-width: 500px;
+
+    height: 58px;
+
+    border: 1px solid #d7e7e9;
+
+    border-radius: 13px;
+
+    padding: 0 18px;
+
+    background: #fbfeff;
+
+    color: #35565c;
+
+    font-size: 15px;
+
+    outline: none;
+}
+
+.normal-input:focus {
+    border-color: #4baab5;
+
+    box-shadow:
+        0 0 0 4px rgba(75, 170, 181, 0.1);
+}
+
+
+/* ==========================
+   OPTION GRID
+========================== */
+
+.option-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 13px;
+
+    max-width: 650px;
+}
+
+
+/* ==========================
+   CHECKBOX OPTIONS
+========================== */
+
+.option-card {
+    min-height: 60px;
+
+    border: 1px solid #dce9eb;
+
+    border-radius: 13px;
+
+    padding: 0 17px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    cursor: pointer;
+
+    color: #4a666b;
+
+    font-size: 14px;
+
+    transition: 0.2s;
+
+    background: #fcfeff;
+}
+
+.option-card:hover {
+    border-color: #7bc2ca;
+
+    background: #f5fcfd;
+}
+
+.option-card input {
+    width: 17px;
+    height: 17px;
+
+    accent-color: #3298a4;
+}
+
+
+/* ==========================
+   RADIO OPTIONS
+========================== */
+
+.option-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+    max-width: 650px;
+}
+
+.radio-card {
+    min-height: 60px;
+
+    border: 1px solid #dce9eb;
+
+    border-radius: 13px;
+
+    padding: 0 18px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    cursor: pointer;
+
+    color: #4a666b;
+
+    font-size: 14px;
+
+    background: #fcfeff;
+
+    transition: 0.2s;
+}
+
+.radio-card:hover {
+    border-color: #7bc2ca;
+
+    background: #f5fcfd;
+}
+
+.radio-card input {
+    width: 17px;
+    height: 17px;
+
+    accent-color: #3298a4;
+}
+
+
+/* ==========================
+   ERROR
+========================== */
+
+.question-error {
+    min-height: 22px;
+
+    color: #d9534f;
+
+    font-size: 13px;
+
+    margin-top: 22px;
+}
+
+
+/* ==========================
+   NAVIGATION
+========================== */
+
+.question-navigation {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top: 30px;
+
+    padding-top: 25px;
+
+    border-top: 1px solid #edf3f4;
+}
+
+.back-button,
+.next-button {
+    height: 50px;
+
+    padding: 0 25px;
+
+    border-radius: 11px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+.back-button {
+    border: 1px solid #d5e5e8;
+
+    background: white;
+
+    color: #6d858a;
+}
+
+.back-button:hover {
+    background: #f5fafb;
+
+    border-color: #b9d5d9;
+}
+
+.next-button {
+    border: none;
+
+    background: #318f9b;
+
+    color: white;
+}
+
+.next-button:hover {
+    background: #267d88;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(49, 143, 155, 0.2);
+}
+
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media (max-width: 700px) {
+
+    .questionnaire-header {
+        padding: 0 20px;
+    }
+
+    .progress-container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .questionnaire-main {
+        padding: 25px 15px 40px;
+    }
+
+    .questionnaire-card {
+        padding: 30px 22px;
+
+        border-radius: 18px;
+    }
+
+    .question-intro h1 {
+        font-size: 30px;
+    }
+
+    .question-step h2 {
+        font-size: 24px;
+    }
+
+    .option-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .questionnaire-logo {
+        font-size: 21px;
+    }
+
+}
+
+@media (max-width: 450px) {
+
+    .question-navigation {
+        gap: 10px;
+    }
+
+    .back-button,
+    .next-button {
+        padding: 0 18px;
+    }
+
+}

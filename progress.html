@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Progress | NutriTrack</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/feature.css') }}">
+</head>
+
+<body>
+
+    <!-- ==============================
+         PAGE HEADER
+    =============================== -->
+
+    <div class="feature-page">
+
+        <div class="feature-header">
+
+            <a href="/dashboard" class="back-button">
+                ← Dashboard
+            </a>
+
+            <div class="feature-title">
+                <span class="feature-icon">📈</span>
+
+                <div>
+                    <h1>Your Progress</h1>
+                    <p>Track your health journey every day.</p>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- ==============================
+             DAILY / WEEKLY TABS
+        =============================== -->
+
+        <div class="progress-tabs">
+
+            <button
+                class="progress-tab active"
+                id="dailyTab"
+                onclick="showProgress('daily')">
+
+                📅 Daily Progress
+
+            </button>
+
+            <button
+                class="progress-tab"
+                id="weeklyTab"
+                onclick="showProgress('weekly')">
+
+                📊 Weekly Progress
+
+            </button>
+
+        </div>
+
+
+        <!-- ==============================
+             DAILY PROGRESS
+        =============================== -->
+
+        <section id="dailyProgress" class="progress-section">
+
+            <div class="progress-section-heading">
+
+                <div>
+                    <h2>Today's Progress</h2>
+                    <p id="todayDate">Your progress for today</p>
+                </div>
+
+                <div class="overall-progress-circle">
+
+                    <div class="circle-content">
+                        <strong id="dailyOverall">78%</strong>
+                        <span>Complete</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- DAILY PROGRESS CARDS -->
+
+            <div class="progress-card-grid">
+
+                <!-- MEALS -->
+
+                <div class="progress-item-card">
+
+                    <div class="progress-item-top">
+
+                        <div class="progress-item-icon meal-icon">
+                            🍽️
+                        </div>
+
+                        <div>
+                            <h3>Meals</h3>
+                            <p>Daily meal target</p>
+                        </div>
+
+                        <strong id="mealPercent">80%</strong>
+
+                    </div>
+
+                    <div class="progress-bar">
+                        <div
+                            class="progress-fill"
+                            id="mealProgress"
+                            style="width: 80%;">
+                        </div>
+                    </div>
+
+                    <p class="progress-description" id="mealText">
+                        3 of 4 meals completed
+                    </p>
+
+                </div>
+
+
+                <!-- EXERCISE -->
+
+                <div class="progress-item-card">
+
+                    <div class="progress-item-top">
+
+                        <div class="progress-item-icon exercise-icon">
+                            🏋️
+                        </div>
+
+                        <div>
+                            <h3>Exercise</h3>
+                            <p>Today's workout</p>
+                        </div>
+
+                        <strong id="exercisePercent">60%</strong>
+
+                    </div>
+
+                    <div class="progress-bar">
+                        <div
+                            class="progress-fill"
+                            id="exerciseProgress"
+                            style="width: 60%;">
+                        </div>
+                    </div>
+
+                    <p class="progress-description" id="exerciseText">
+                        30 of 50 minutes completed
+                    </p>
+
+                </div>
+
+
+                <!-- WATER -->
+
+                <div class="progress-item-card">
+
+                    <div class="progress-item-top">
+
+                        <div class="progress-item-icon water-icon">
+                            💧
+                        </div>
+
+                        <div>
+                            <h3>Water</h3>
+                            <p>Daily hydration</p>
+                        </div>
+
+                        <strong id="waterPercent">90%</strong>
+
+                    </div>
+
+                    <div class="progress-bar">
+                        <div
+                            class="progress-fill"
+                            id="waterProgress"
+                            style="width: 90%;">
+                        </div>
+                    </div>
+
+                    <p class="progress-description" id="waterText">
+                        1800 ml of 2000 ml
+                    </p>
+
+                </div>
+
+
+                <!-- SLEEP -->
+
+                <div class="progress-item-card">
+
+                    <div class="progress-item-top">
+
+                        <div class="progress-item-icon sleep-icon">
+                            😴
+                        </div>
+
+                        <div>
+                            <h3>Sleep</h3>
+                            <p>Last night's sleep</p>
+                        </div>
+
+                        <strong id="sleepPercent">85%</strong>
+
+                    </div>
+
+                    <div class="progress-bar">
+                        <div
+                            class="progress-fill"
+                            id="sleepProgress"
+                            style="width: 85%;">
+                        </div>
+                    </div>
+
+                    <p class="progress-description" id="sleepText">
+                        6.8 of 8 hours
+                    </p>
+
+                </div>
+
+
+                
+
+            </div>
+
+
+            <!-- DAILY SUMMARY -->
+
+            <div class="progress-summary-card">
+
+                <div class="summary-icon">
+                    🌱
+                </div>
+
+                <div>
+                    <h3>Keep going!</h3>
+
+                    <p id="dailyMessage">
+                        You're doing a great job today.
+                        A few more healthy choices can make your day even better.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==============================
+             WEEKLY PROGRESS
+        =============================== -->
+
+        <section
+            id="weeklyProgress"
+            class="progress-section"
+            style="display: none;">
+
+            <div class="progress-section-heading">
+
+                <div>
+                    <h2>This Week</h2>
+                    <p>Your progress from Monday to Sunday.</p>
+                </div>
+
+                <div class="weekly-score">
+
+                    <strong id="weeklyOverall">82%</strong>
+
+                    <span>Weekly Average</span>
+
+                </div>
+
+            </div>
+
+
+            <!-- WEEKLY SUMMARY -->
+
+            <div class="weekly-summary-grid">
+
+                <div class="weekly-summary-card">
+
+                    <span class="weekly-summary-icon">
+                        🏋️
+                    </span>
+
+                    <div>
+                        <strong id="weeklyWorkout">5</strong>
+                        <span>Workout Days</span>
+                    </div>
+
+                </div>
+
+
+                <div class="weekly-summary-card">
+
+                    <span class="weekly-summary-icon">
+                        💧
+                    </span>
+
+                    <div>
+                        <strong id="weeklyWater">86%</strong>
+                        <span>Water Goal</span>
+                    </div>
+
+                </div>
+
+
+                <div class="weekly-summary-card">
+
+                    <span class="weekly-summary-icon">
+                        😴
+                    </span>
+
+                    <div>
+                        <strong id="weeklySleep">84%</strong>
+                        <span>Sleep Goal</span>
+                    </div>
+
+                </div>
+
+
+                <div class="weekly-summary-card">
+
+                    <span class="weekly-summary-icon">
+                        🍽️
+                    </span>
+
+                    <div>
+                        <strong id="weeklyMeals">88%</strong>
+                        <span>Meal Goal</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- WEEKLY DAYS -->
+
+            <div class="weekly-progress-card">
+
+                <div class="weekly-card-header">
+
+                    <div>
+                        <h3>Weekly Activity</h3>
+                        <p>Your daily completion rate</p>
+                    </div>
+
+                </div>
+
+
+                <!-- MONDAY -->
+
+                <div class="weekly-day">
+
+                    <div class="day-name">
+                        <strong>Mon</strong>
+                        <span>Monday</span>
+                    </div>
+
+                    <div class="weekly-bar">
+                        <div
+                            class="weekly-fill"
+                            style="width: 80%;">
+                        </div>
+                    </div>
+
+                    <strong class="day-percent">80%</strong>
+
+                </div>
+
+
+                <!-- TUESDAY -->
+
+                <div class="weekly-day">
+
+                    <div class="day-name">
+                        <strong>Tue</strong>
+                        <span>Tuesday</span>
+                    </div>
+
+                    <div class="weekly-bar">
+                        <div
+                            class="weekly-fill"
+                            style="width: 90%;">
+                        </div>
+                    </div>
+
+                    <strong class="day-percent">90%</strong>
+
+                </div>
+
+
+                <!-- WEDNESDAY -->
+
+                <div class="weekly-day">
+
+                    <div class="day-name">
+                        <strong>Wed</strong>
+                        <span>Wednesday</span>
+                    </div>
+
+                    <div class="weekly-bar">
+                        <div
+                            class="weekly-fill"
+                            style="width: 70%;">
+                        </div>
+                    </div>
+
+                    <strong class="day-percent">70%</strong>
+
+                </div>
+
+
+                <!-- THURSDAY -->
+
+                <div class="weekly-day">
+
+                    <div class="day-name">
+                        <strong>Thu</strong>
+                        <span>Thursday</span>
+                    </div>
+
+                    <div class="weekly-bar">
+                        <div
+                            class="weekly-fill"
+                            style="width: 90%;">
+                        </div>
+                    </div>
+
+                    <strong class="day-percent">90%</strong>
+
+                </div>
+
+
+                <!-- FRIDAY -->
+
+                <div class="weekly-day">
+
+                    <div class="day-name">
+                        <strong>Fri</strong>
+                        <span>Friday</span>
+                    </div>
+
+                    <div class="weekly-bar">
+                        <div
+                            class="weekly-fill"
+                            style="width: 80%;">
+                        </div>
+                    </div>
+
+                    <strong class="day-percent">80%</strong>
+
+                </div>
+
+
+                <!-- SATURDAY -->
+
+                <div class="weekly-day">
+
+                    <div class="day-name">
+                        <strong>Sat</strong>
+                        <span>Saturday</span>
+                    </div>
+
+                    <div class="weekly-bar">
+                        <div
+                            class="weekly-fill"
+                            style="width: 90%;">
+                        </div>
+                    </div>
+
+                    <strong class="day-percent">90%</strong>
+
+                </div>
+
+
+                <!-- SUNDAY -->
+
+                <div class="weekly-day">
+
+                    <div class="day-name">
+                        <strong>Sun</strong>
+                        <span>Sunday</span>
+                    </div>
+
+                    <div class="weekly-bar">
+                        <div
+                            class="weekly-fill"
+                            style="width: 70%;">
+                        </div>
+                    </div>
+
+                    <strong class="day-percent">70%</strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- WEEKLY MESSAGE -->
+
+            <div class="progress-summary-card">
+
+                <div class="summary-icon">
+                    🌟
+                </div>
+
+                <div>
+                    <h3>Great work this week!</h3>
+
+                    <p>
+                        You've been consistent with your healthy habits.
+                        Keep building your routine one day at a time.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==============================
+             FOOTER
+        =============================== -->
+
+        <div class="feature-page-footer">
+            <p>NutriTrack • HEALTHIER YOU, EVERYDAY</p>
+        </div>
+
+    </div>
+
+
+    <!-- ==============================
+         JAVASCRIPT
+    =============================== -->
+
+    <script src="{{ url_for('static', filename='js/progress.js') }}"></script>
+
+</body>
+</html>
